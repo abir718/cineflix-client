@@ -5,13 +5,14 @@ import './index.css'
 import { createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Home from './Home.jsx';
 import Error from './Error.jsx';
-import Homecontent from './components/Homecontent.jsx';
+
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import News from './components/News.jsx';
 import Addmovies from './components/Addmovies.jsx';
 import Allmovies from './components/Allmovies.jsx';
 import Favourites from './components/Favourites.jsx';
+import Homecontent from './Home Content/Homecontent.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Homecontent />,
+        element: <Homecontent></Homecontent>,
       },
       {
         path: '/login',

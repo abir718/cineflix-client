@@ -5,7 +5,7 @@ import { FaPlay } from "react-icons/fa6";
 
 
 
-const Homecontent = () => {
+const Slide = () => {
 
     const settings = {
         dots: true,
@@ -16,10 +16,10 @@ const Homecontent = () => {
     };
 
     return (
-        <div className="w-[80%] mx-auto my-10">
+        <div className="w-[80%] mx-auto py-10">
             <Slider {...settings}>
 
-                <div className="bg-gray-900 text-white rounded-lg p-6">
+                <div className=" text-white rounded-lg p-6">
                     <div className="flex items-center justify-between mx-24">
                     <div className="flex flex-col gap-6">
                         <div className="flex gap-2 my-2">
@@ -56,7 +56,7 @@ const Homecontent = () => {
                     </div>
                 </div>
 
-                <div className="bg-gray-900 text-white rounded-lg p-6">
+                <div className=" text-white rounded-lg p-6">
                     <div className="flex items-center justify-between mx-24">
                     <div className="flex flex-col gap-6">
                         <div className="flex gap-2 my-2">
@@ -65,7 +65,7 @@ const Homecontent = () => {
                             <p className="bg-[#DD003F] text-sm px-2 py-1 rounded-md">Drama</p>
                         </div>
                         <div className="flex flex-col gap-4">
-                            <p className="text-6xl font-bold">Avengers: Endgame<span className="text-gray-400 text-lg">2019</span></p>
+                            <p className="text-6xl font-bold">Avengers: Endgame <span className="text-gray-400 text-lg"> 2019</span></p>
                             <div className="flex gap-4 text-gray-400">
                                 <p className="text-sm">⭐ 8.4/10</p>
                                 <p className="text-sm"> 3h 1m</p>
@@ -93,7 +93,7 @@ const Homecontent = () => {
                     </div>
                 </div>
 
-                <div className="bg-gray-900 text-white rounded-lg p-6">
+                <div className=" text-white rounded-lg p-6">
                     <div className="flex items-center justify-between mx-24">
                     <div className="flex flex-col gap-6">
                         <div className="flex gap-2 my-2">
@@ -142,4 +142,4 @@ const Homecontent = () => {
     );
 };
 
-export default Homecontent;
+export default Slide;
