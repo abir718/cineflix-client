@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
-        <div className="bg-[#1b1b1b] drop-shadow-lg py-4 flex items-center justify-around">
+        <div className="bg-[#1b1b1b] drop-shadow-lg py-2 flex items-center justify-around">
 
             <div className="flex flex-col items-center">
                 <img className="w-[80px]" src="/public/images/logo.png" alt="" />

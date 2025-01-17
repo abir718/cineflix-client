@@ -13,6 +13,7 @@ import Addmovies from './components/Addmovies.jsx';
 import Allmovies from './components/Allmovies.jsx';
 import Favourites from './components/Favourites.jsx';
 import Homecontent from './Home Content/Homecontent.jsx';
+import Auth from './Authprovider';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Auth>
     <RouterProvider router={router} />
-  </StrictMode>,
+    </Auth>
+  </StrictMode>
 )
