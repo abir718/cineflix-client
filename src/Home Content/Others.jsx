@@ -1,0 +1,80 @@
+
+
+const Others = () => {
+    return (
+        <div className="mx-auto w-[80%]">
+            <div>
+            <div className="flex items-center gap-2 my-10">
+                <div className="w-[10px] h-[40px] bg-[#DD003F]">
+                </div>
+                <p className="text-white text-3xl font-bold">Top Rated</p>
+            </div>
+            <div className="flex items-center gap-6 pb-10">
+                <div className="bg-[#232323] w-fit p-3 rounded-lg flex flex-col gap-2">
+                    <img className="w-52 h-72 rounded-lg" src="https://m.media-amazon.com/images/M/MV5BYjk1Y2U4MjQtY2ZiNS00OWQyLWI3MmYtZWUwNmRjYWRiNWNhXkEyXkFqcGc@._V1_.jpg" alt="" />
+                    <div className="flex items-center justify-around">
+                        <p className="text-white text-xl ">Parasite</p>
+                        <p className="text-sm font-medium text-gray-400">⭐ 8.8/10</p>
+                    </div>
+                    <a className="flex justify-center" href="https://en.wikipedia.org/wiki/Parasite_(2019_film)"><button className="text-[#DD003F] border-[2px] border-[#DD003F] rounded-full px-3 py-1 hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500 ">View Details</button></a>
+                </div>
+                <div className="bg-[#232323] w-fit p-3 rounded-lg flex flex-col gap-2">
+                    <img className="w-52 h-72 rounded-lg" src="https://m.media-amazon.com/images/M/MV5BMjUyNTA3MTAyM15BMl5BanBnXkFtZTgwOTEyMTkyMjE@._V1_FMjpg_UX1000_.jpg" alt="Maze Runner" />
+                    <div className="flex items-center justify-around">
+                        <p className="text-white text-xl">Maze Runner</p>
+                        <p className="text-sm font-medium text-gray-400">⭐ 6.8/10</p>
+                    </div>
+                    <a className="flex justify-center" href="https://en.wikipedia.org/wiki/The_Maze_Runner_(film)">
+                        <button className="text-[#DD003F] border-[2px] border-[#DD003F] rounded-full px-3 py-1 hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500">View Details</button>
+                    </a>
+                </div>
+                <div className="bg-[#232323] w-fit p-3 rounded-lg flex flex-col gap-2">
+                    <img className="w-52 h-72 rounded-lg" src="https://m.media-amazon.com/images/M/MV5BODg3ZTM2YWQtZDE5Ny00NGNiLTkzYjgtYWVlYjNkOTg5NDI1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="World War Z" />
+                    <div className="flex items-center justify-around">
+                        <p className="text-white text-xl">World War Z</p>
+                        <p className="text-sm font-medium text-gray-400">⭐ 7.0/10</p>
+                    </div>
+                    <a className="flex justify-center" href="https://en.wikipedia.org/wiki/World_War_Z_(film)">
+                        <button className="text-[#DD003F] border-[2px] border-[#DD003F] rounded-full px-3 py-1 hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500">View Details</button>
+                    </a>
+                </div>
+                <div className="bg-[#232323] w-fit p-3 rounded-lg flex flex-col gap-2">
+                    <img className="w-52 h-72 rounded-lg" src="https://m.media-amazon.com/images/M/MV5BNjE5MzYwMzYxMF5BMl5BanBnXkFtZTcwOTk4MTk0OQ@@._V1_FMjpg_UX1000_.jpg" alt="Gravity" />
+                    <div className="flex items-center justify-around">
+                        <p className="text-white text-xl">Gravity</p>
+                        <p className="text-sm font-medium text-gray-400">⭐ 7.7/10</p>
+                    </div>
+                    <a className="flex justify-center" href="https://en.wikipedia.org/wiki/Gravity_(2013_film)">
+                        <button className="text-[#DD003F] border-[2px] border-[#DD003F] rounded-full px-3 py-1 hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500">View Details</button>
+                    </a>
+                </div>
+
+                <div className="bg-[#232323] w-fit p-3 rounded-lg flex flex-col gap-2">
+                    <img className="w-52 h-72 rounded-lg" src="https://m.media-amazon.com/images/M/MV5BNmQxNjZlZTctMWJiMC00NGMxLWJjNTctNTFiNjA1Njk3ZDQ5XkEyXkFqcGc@._V1_.jpg" alt="Avatar" />
+                    <div className="flex items-center justify-around">
+                        <p className="text-white text-xl">Avatar</p>
+                        <p className="text-sm font-medium text-gray-400">⭐ 7.9/10</p>
+                    </div>
+                    <a className="flex justify-center" href="https://en.wikipedia.org/wiki/Avatar_(2009_film)">
+                        <button className="text-[#DD003F] border-[2px] border-[#DD003F] rounded-full px-3 py-1 hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500">View Details</button>
+                    </a>
+                </div>
+                <div className="bg-[#232323] w-fit p-3 rounded-lg flex flex-col gap-2">
+                    <img className="w-52 h-72 rounded-lg" src="https://m.media-amazon.com/images/M/MV5BZWU5ZjJkNTQtMzQwOS00ZGE4LWJkMWUtMGQ5YjdiM2FhYmRhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Dunkirk" />
+                    <div className="flex items-center justify-around">
+                        <p className="text-white text-xl">Dunkirk</p>
+                        <p className="text-sm font-medium text-gray-400">⭐ 7.8/10</p>
+                    </div>
+                    <a className="flex justify-center" href="https://en.wikipedia.org/wiki/Dunkirk_(2017_film)">
+                        <button className="text-[#DD003F] border-[2px] border-[#DD003F] rounded-full px-3 py-1 hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500">View Details</button>
+                    </a>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+    );
+};
+
+export default Others;
