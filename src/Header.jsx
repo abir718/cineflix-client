@@ -3,7 +3,7 @@
 const Header = () => {
     return (
         <div>
-            <p>Header page</p>
+            <p className="text-lg font-bold bg-slate-600">Header page</p>
         </div>
     );
 };
