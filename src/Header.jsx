@@ -33,10 +33,6 @@ const Header = () => {
                     }
                     
                 </div>
-
-
-
-
             </div>
             <div className="h-[1px] w-full bg-[#DD003F]">
             </div>

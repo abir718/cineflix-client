@@ -44,6 +44,7 @@ const router = createBrowserRouter([
       {
         path: '/allmovies',
         element: <Allmovies />,
+        loader: () => fetch('http://localhost:5000/addmovies')
       },
       {
         path: '/favourites',
