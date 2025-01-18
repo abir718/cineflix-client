@@ -12,6 +12,7 @@ import Allmovies from './components/Allmovies.jsx';
 import Favourites from './components/Favourites.jsx';
 import Homecontent from './Home Content/Homecontent.jsx';
 import Auth from './Authprovider';
+import Details from './components/Details.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,13 @@ const router = createBrowserRouter([
         element: <Allmovies />,
         loader: () => fetch('http://localhost:5000/addmovies')
       },
+      {
+        path: '/allmovies/:id',
+        element: <Details />,
+        loader: ({params}) => fetch(`http://localhost:5000/addmovies/${params.id}`)
+      },
+
+      
       {
         path: '/favourites',
         element: <Favourites />,

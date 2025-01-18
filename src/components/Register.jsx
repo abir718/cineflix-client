@@ -24,7 +24,6 @@ const Register = () => {
         let password = e.target.password.value
         let name = e.target.name.value
         let photo = e.target.photo.value
-        console.log(name , photo)
         setError('')
         let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 

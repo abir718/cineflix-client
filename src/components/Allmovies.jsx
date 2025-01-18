@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Allmovies = () => {
 
@@ -25,7 +25,8 @@ const Allmovies = () => {
               <p className="">Rating: {movie.rating}/5</p>
             </div>
               </div>
-              <button className="text-white bg-[#DD003F] w-fit rounded-lg py-2 px-3">View Details</button>
+              <Link to={`/allmovies/${movie._id}`}><button className="text-white bg-[#DD003F] w-fit rounded-lg py-2 px-3">View Details</button></Link>
+              
 
 
           
