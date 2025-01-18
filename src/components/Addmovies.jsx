@@ -38,10 +38,7 @@ const Addmovies = () => {
           }
 
       })
-        
-        
-        
-        
+             
         const isValid = validateForm(newMovieData)
         if (isValid) {
           console.log("Movie Added:", newMovieData);
