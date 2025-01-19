@@ -13,6 +13,7 @@ import Favourites from './components/Favourites.jsx';
 import Homecontent from './Home Content/Homecontent.jsx';
 import Auth from './Authprovider';
 import Details from './components/Details.jsx';
+import Hidden from './Hidden.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addmovies',
-        element: <Addmovies />,
+        element: <Hidden><Addmovies/></Hidden>,
       },
       {
         path: '/allmovies',
@@ -47,14 +48,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/allmovies/:id',
-        element: <Details />,
+        element: <Hidden><Details/></Hidden>,
         loader: ({params}) => fetch(`http://localhost:5000/addmovies/${params.id}`)
       },
 
       
       {
         path: '/favourites',
-        element: <Favourites />,
+        element:<Hidden><Favourites/></Hidden>,
+        loader: () => fetch('http://localhost:5000/favmovies')
       },
     ],
   },
