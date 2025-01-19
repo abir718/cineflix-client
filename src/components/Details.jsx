@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { authContext } from "../Authprovider";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { FaPen } from "react-icons/fa6";
 
 const Details = () => {
   const { user } = useContext(authContext);
@@ -85,9 +86,13 @@ const Details = () => {
               <div className="flex gap-3">
                 <button onClick={addToFav} className="font-medium border-[2px] border-[#DD003F] text-[#DD003F] px-3 py-2 rounded-lg hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500">
                   Add To Favorites</button>
-                <button onClick={() => removeMovie(movie._id)} className="bg-[#DD003F] px-3 rounded-lg">
+                <button onClick={() => removeMovie(movie._id)} className="bg-[#DD003F] px-3 rounded-lg ">
                   <FaTrash className="text-white" />
                 </button>
+                <Link to={`/update/${movie._id}`}><button  className="bg-[#DD003F] p-4 rounded-lg">
+                  <FaPen className="text-white" />
+                </button></Link>
+
               </div>
             </div>
           ) : (

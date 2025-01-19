@@ -2,9 +2,10 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Rating from '@mui/material/Rating';
+import { useLoaderData } from "react-router-dom";
 
 
-const Addmovies = () => {
+const Updatemovies = () => {
 
   const [rating, setRating] = useState(0)
   const genres = ["Comedy", "Drama", "Horror", "Action", "Thriller"];
@@ -28,8 +29,8 @@ const Addmovies = () => {
         const isValid = validateForm(newMovieData)
         if (isValid) {
 
-          fetch('http://localhost:5000/addmovies' , {
-            method:'POST',
+          fetch(`http://localhost:5000/update/${_id}` , {
+            method:'PUT',
             headers:{
                 'content-type':'application/json'
             },
@@ -38,8 +39,8 @@ const Addmovies = () => {
         .then(res => res.json())
         .then(data =>{
             console.log(data);
-            if (data.insertedId) {
-              toast.success("Movie added successfully!")
+            if (data.modifiedCount) {
+              toast.success("Movie updated successfully!")
 
             }
   
@@ -88,13 +89,16 @@ const Addmovies = () => {
     }
     return isValid;
   };
+
+  const movie = useLoaderData();
+  const {_id} = movie;
   
   
   return (
     <div className="bg-[#1b1b1b]">
         <div className="flex items-center gap-3 pt-10 mx-auto w-[80%]">
         <div className="w-[10px] h-[40px] bg-[#DD003F]"></div>
-        <p className="text-white text-3xl font-bold">Add Movies</p>
+        <p className="text-white text-3xl font-bold">Update Movies</p>
         </div>
       <div className="hero ">
 
@@ -203,7 +207,7 @@ const Addmovies = () => {
             </div>
             <div className="form-control mt-6">
               <button className="py-2 rounded-lg text-white bg-[#DD003F] hover:scale-105 transition duration-300">
-                Add Movie
+                Update
               </button>
             </div>
           </form>
@@ -214,4 +218,4 @@ const Addmovies = () => {
   );
 };
 
-export default Addmovies;
+export default Updatemovies;

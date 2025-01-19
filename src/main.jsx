@@ -15,6 +15,7 @@ import Auth from './Authprovider';
 import Details from './components/Details.jsx';
 import Hidden from './Hidden.jsx';
 import Fedetails from './Home Content/Fedetails.jsx';
+import Updatemovies from './components/Updatemovies.jsx';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,11 @@ const router = createBrowserRouter([
         path: '/favourites',
         element:<Hidden><Favourites/></Hidden>,
         loader: () => fetch('http://localhost:5000/favmovies')
+      },
+      {
+        path: '/update/:id',
+        element: <Updatemovies></Updatemovies>,
+        loader: ({params}) => fetch(`http://localhost:5000/update/${params.id}`)
       },
     ],
   },
