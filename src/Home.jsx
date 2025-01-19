@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 const Home = () => {
     return (
         <div>
+            
             <Toaster></Toaster>
             <Header></Header>
             <Outlet></Outlet>

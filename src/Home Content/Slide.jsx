@@ -5,7 +5,7 @@ import { FaPlay } from "react-icons/fa6";
 
 
 
-const Slide = () => {
+const Slide = ({theme}) => {
 
     const settings = {
         dots: true,
@@ -19,7 +19,7 @@ const Slide = () => {
         <div className="w-[80%] mx-auto py-10">
             <Slider {...settings}>
 
-                <div className=" text-white rounded-lg p-6">
+                <div className={`${theme === "dark" ? "text-white" : "text-black"}rounded-lg p-6`}>
                     <div className="flex items-center justify-between mx-24">
                     <div className="flex flex-col gap-6">
                         <div className="flex gap-2 my-2">
@@ -56,7 +56,7 @@ const Slide = () => {
                     </div>
                 </div>
 
-                <div className=" text-white rounded-lg p-6">
+                <div className={`${theme === "dark" ? "text-white" : "text-black"}rounded-lg p-6`}>
                     <div className="flex items-center justify-between mx-24">
                     <div className="flex flex-col gap-6">
                         <div className="flex gap-2 my-2">
@@ -93,7 +93,7 @@ const Slide = () => {
                     </div>
                 </div>
 
-                <div className=" text-white rounded-lg p-6">
+                <div className={`${theme === "dark" ? "text-white" : "text-black"}rounded-lg p-6`}>
                     <div className="flex items-center justify-between mx-24">
                     <div className="flex flex-col gap-6">
                         <div className="flex gap-2 my-2">

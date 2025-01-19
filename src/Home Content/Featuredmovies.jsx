@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 
 
-const Featuredmovies = ({ featuredMovies }) => {
+const Featuredmovies = ({ featuredMovies , theme }) => {
     const {_id , poster, title, rating} = featuredMovies;
   
     return (
 <div className=" flex items-center justify-center">
-<div className="bg-[#232323] w-fit p-3 rounded-lg flex flex-col gap-2">
+
+<div className={`w-fit p-3 rounded-lg flex flex-col gap-2 ${theme === "dark" ? "bg-[#232323]" : "bg-[#e4e4e4]"}`}>
   <img className="w-52 h-72 rounded-lg"src={poster}/>
   <div className="flex items-center justify-around">
-    <p className="text-white text-xl">{title}</p>
+    <p className={`text-xl ${theme === "dark" ? "text-white" : "text-black"}`}>{title}</p>
     <p className="text-sm font-medium text-gray-400">⭐ {rating}/10</p>
   </div>
   <div className="flex justify-center">
