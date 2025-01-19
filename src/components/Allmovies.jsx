@@ -7,7 +7,11 @@ const Allmovies = () => {
   const [movies, setMovies] = useState(loadMovies);
 
     return (
-      <div className="bg-[#1b1b1b] py-10">
+      <div className="bg-[#1b1b1b] py-10 ">
+        <div className="flex items-center gap-3 py-10 w-[80%] mx-auto">
+        <div className="w-[10px] h-[40px] bg-[#DD003F]"></div>
+        <p className="text-white text-3xl font-bold">Add Movies</p>
+        </div>
         <div className=" w-[80%] mx-auto grid grid-cols-3">
         {movies.map((movie) => (
           <div

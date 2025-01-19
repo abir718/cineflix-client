@@ -14,6 +14,7 @@ import Homecontent from './Home Content/Homecontent.jsx';
 import Auth from './Authprovider';
 import Details from './components/Details.jsx';
 import Hidden from './Hidden.jsx';
+import Fedetails from './Home Content/Fedetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Homecontent></Homecontent>,
+        loader: () => fetch('http://localhost:5000/featuredmovies')
+      },
+      {
+        path: '/:id',
+        element: <Fedetails/>,
+        loader: ({params}) => fetch(`http://localhost:5000/featuredmovies/${params.id}`)
       },
       {
         path: '/login',

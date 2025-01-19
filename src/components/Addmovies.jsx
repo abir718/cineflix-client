@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Rating } from "react-simple-star-rating";
+import Rating from '@mui/material/Rating';
 
 
 const Addmovies = () => {
@@ -18,82 +18,89 @@ const Addmovies = () => {
         const genre = form.genre.value;
         const duration = form.duration.value;
         const releaseYear = form.releaseYear.value;
-
+        const rating = parseInt(form.rating.value) || 0;
         const summary = form.summary.value;
 
         const newMovieData = {poster,title,genre,duration,releaseYear,rating,summary};
         
-        fetch('http://localhost:5000/addmovies' , {
-          method:'POST',
-          headers:{
-              'content-type':'application/json'
-          },
-          body:JSON.stringify(newMovieData)
-      })
-      .then(res => res.json())
-      .then(data =>{
-          console.log(data);
-          if (data.insertedId) {
-            toast.success("Movie added successfully!")
-          }
 
-      })
              
         const isValid = validateForm(newMovieData)
         if (isValid) {
-          console.log("Movie Added:", newMovieData);
-          form.reset();
-          setRating(0)
+          console.log(isValid)
+          fetch('http://localhost:5000/addmovies' , {
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(newMovieData)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+            if (data.insertedId) {
+              toast.success("Movie added successfully!")
+
+            }
+  
+        })
+        setRating(0)
+        form.reset()
         }
   };
 
   const validateForm = (movieData) => {
     let isValid = true;
-
+  
     if (!movieData.poster || !movieData.poster.trim().startsWith("http")) {
       toast.error("Poster must be a valid link.");
       isValid = false;
     }
-
+  
     if (!movieData.title || movieData.title.length < 2) {
       toast.error("Title must be at least 2 characters long.");
       isValid = false;
     }
-
+  
     if (!movieData.genre) {
       toast.error("Please select a genre.");
       isValid = false;
     }
-
+  
     if (!movieData.duration || movieData.duration <= 60) {
       toast.error("Duration must be greater than 60 minutes.");
       isValid = false;
     }
-
+  
     if (!movieData.releaseYear) {
       toast.error("Please select a release year.");
       isValid = false;
     }
-
-    if (movieData.rating === 0) {
+  
+    if (!movieData.rating || movieData.rating < 0) {
       toast.error("Please provide a rating.");
       isValid = false;
     }
-
+  
     if (!movieData.summary || movieData.summary.length < 10) {
       toast.error("Summary must be at least 10 characters long.");
       isValid = false;
     }
+    console.log(movieData.rating)
     return isValid;
   };
   
-  const handleRating = (newRatings) => {
-    setRating(newRatings)
-  }
-
+  
   return (
-    <div>
-      <div className="hero bg-[#1b1b1b]">
+    <div className="bg-[#1b1b1b]">
+        <div className="flex items-center gap-3 pt-10 mx-auto w-[80%]">
+        <div className="w-[10px] h-[40px] bg-[#DD003F]"></div>
+        <p className="text-white text-3xl font-bold">Add Movies</p>
+        </div>
+      <div className="hero ">
+
+
+
         <div className="card bg-[#232323] w-full max-w-sm shrink-0 shadow-2xl my-14">
           <form className="card-body" onSubmit={handleSubmit}>
             <div className="form-control">
@@ -175,13 +182,15 @@ const Addmovies = () => {
               <label className="label">
                 <span className="label-text text-white">Rating</span>
               </label>
-              <div className="flex">
-              <Rating onClick={handleRating} allowFraction={false} ratingValue={rating} />
-              </div>
-              
-            </div>
-            
-
+              <div>
+              <Rating
+                name="rating"
+                value={rating}
+                size="large"
+                onChange={(event, newValue) => setRating(newValue)}
+              />
+      </div>
+                         </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-white">Summary</span>
@@ -193,17 +202,15 @@ const Addmovies = () => {
                 required
               />
             </div>
-
             <div className="form-control mt-6">
               <button className="py-2 rounded-lg text-white bg-[#DD003F] hover:scale-105 transition duration-300">
                 Add Movie
               </button>
             </div>
           </form>
-
         </div>
       </div>
-      
+
     </div>
   );
 };
