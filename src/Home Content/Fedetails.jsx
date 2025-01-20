@@ -9,11 +9,11 @@ const Fedetails = () => {
 
     return (
         <div>
-             <div className="bg-[#1b1b1b] h-screen">
+             <div className="bg-[#1b1b1b] h-full">
                   <div className="py-10">
-                    <div className="w-[80%] mx-auto grid grid-cols-3">
+                    <div className="w-[80%] mx-auto ">
                         <div className="mb-10 bg-[#232323] w-fit rounded-lg p-6 gap-4">
-                          <div className="flex items-center gap-8">
+                          <div className="md:flex items-center gap-8">
                             <div>
                               <img src={movie.poster} className="w-24 h-36 object-cover" />
                             </div>

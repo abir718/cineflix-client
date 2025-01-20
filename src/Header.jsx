@@ -20,8 +20,8 @@ const Header = () => {
                 </button>
 
                 <div className="flex items-center sm:flex-col">
-                    <img className="w-[80px] lg:flex hidden" src="/public/images/logo.png" alt="" />
-                    <p className="text-[#DD003F] lg:flex hidden">Cineflix</p>
+                    <img className="w-[80px] lg:flex hidden" src="/images/logo.png" alt="" />
+                    <p className="text-[#DD003F] lg:flex hidden">CineFlix</p>
                 </div>
 
                 <div className={`flex flex-col md:flex-row md:items-center gap-6 md:gap-8 ${isNavOpen ? "flex" : "hidden"} md:flex`}>

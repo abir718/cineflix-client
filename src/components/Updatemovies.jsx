@@ -29,7 +29,7 @@ const Updatemovies = () => {
         const isValid = validateForm(newMovieData)
         if (isValid) {
 
-          fetch(`http://localhost:5000/update/${_id}` , {
+          fetch(`https://cineflix-server.vercel.app/update/${_id}` , {
             method:'PUT',
             headers:{
                 'content-type':'application/json'

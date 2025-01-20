@@ -26,12 +26,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Homecontent></Homecontent>,
-        loader: () => fetch('http://localhost:5000/featuredmovies')
+        loader: () => fetch('https://cineflix-server.vercel.app/featuredmovies')
       },
       {
         path: '/:id',
         element: <Fedetails/>,
-        loader: ({params}) => fetch(`http://localhost:5000/featuredmovies/${params.id}`)
+        loader: ({params}) => fetch(`https://cineflix-server.vercel.app/featuredmovies/${params.id}`)
       },
       {
         path: '/login',
@@ -52,24 +52,24 @@ const router = createBrowserRouter([
       {
         path: '/allmovies',
         element: <Allmovies />,
-        loader: () => fetch('http://localhost:5000/addmovies')
+        loader: () => fetch('https://cineflix-server.vercel.app/addmovies')
       },
       {
         path: '/allmovies/:id',
         element: <Hidden><Details/></Hidden>,
-        loader: ({params}) => fetch(`http://localhost:5000/addmovies/${params.id}`)
+        loader: ({params}) => fetch(`https://cineflix-server.vercel.app/addmovies/${params.id}`)
       },
 
       
       {
         path: '/favourites',
         element:<Hidden><Favourites/></Hidden>,
-        loader: () => fetch('http://localhost:5000/favmovies')
+        loader: () => fetch('https://cineflix-server.vercel.app/favmovies')
       },
       {
         path: '/update/:id',
         element: <Updatemovies></Updatemovies>,
-        loader: ({params}) => fetch(`http://localhost:5000/update/${params.id}`)
+        loader: ({params}) => fetch(`https://cineflix-server.vercel.app/update/${params.id}`)
       },
     ],
   },

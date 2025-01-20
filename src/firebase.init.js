@@ -7,13 +7,17 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCPLKcBqnl9Xz-MoKjRWhT9V5g7KIVsPiU",
-  authDomain: "cineflix-a699a.firebaseapp.com",
-  projectId: "cineflix-a699a",
-  storageBucket: "cineflix-a699a.firebasestorage.app",
-  messagingSenderId: "634299148716",
-  appId: "1:634299148716:web:1ac61ec76b76ef209f3209",
-  measurementId: "G-L5DXEJLLDM"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
+  measurementId: import.meta.env.VITE_measurementId
+
+
+
+
 };
 
 // Initialize Firebase

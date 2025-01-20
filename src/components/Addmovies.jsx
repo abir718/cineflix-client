@@ -28,7 +28,7 @@ const Addmovies = () => {
         const isValid = validateForm(newMovieData)
         if (isValid) {
 
-          fetch('http://localhost:5000/addmovies' , {
+          fetch('https://cineflix-server.vercel.app/addmovies' , {
             method:'POST',
             headers:{
                 'content-type':'application/json'

@@ -14,7 +14,7 @@ const Details = () => {
   const [movie, setMovie] = useState(movieData);
 
   const addToFav = () => {
-    fetch("http://localhost:5000/favmovies", {
+    fetch("https://cineflix-server.vercel.app/favmovies", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,7 +46,7 @@ const Details = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/addmovies/${id}`, {
+        fetch(`https://cineflix-server.vercel.app/addmovies/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -65,12 +65,12 @@ const Details = () => {
   };
   
   return (
-    <div className="bg-[#1b1b1b] h-screen">
+    <div className="bg-[#1b1b1b] h-full">
       <div className="py-10">
         <div className="w-[80%] mx-auto">
           {movie?._id ? (
             <div className="mb-10 bg-[#232323] w-fit rounded-lg p-6 gap-4">
-              <div className="flex items-center gap-8">
+              <div className="md:flex items-center gap-8">
                 <div>
                   <img src={movie.poster} className="w-24 h-36 object-cover" />
                 </div>
@@ -83,13 +83,13 @@ const Details = () => {
                 </div>
               </div>
               <p className="text-white">Summary: {movie.summary}</p>
-              <div className="flex gap-3">
+              <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
                 <button onClick={addToFav} className="font-medium border-[2px] border-[#DD003F] text-[#DD003F] px-3 py-2 rounded-lg hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500">
                   Add To Favorites</button>
-                <button onClick={() => removeMovie(movie._id)} className="bg-[#DD003F] px-3 rounded-lg ">
+                <button onClick={() => removeMovie(movie._id)} className="bg-[#DD003F] p-4 w-fit rounded-lg ">
                   <FaTrash className="text-white" />
                 </button>
-                <Link to={`/update/${movie._id}`}><button  className="bg-[#DD003F] p-4 rounded-lg">
+                <Link to={`/update/${movie._id}`}><button  className="bg-[#DD003F] w-fit p-4 rounded-lg">
                   <FaPen className="text-white" />
                 </button></Link>
 

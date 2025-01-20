@@ -28,7 +28,7 @@ const Favourites = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/favmovies/${id}`, {
+        fetch(`https://cineflix-server.vercel.app/favmovies/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -53,7 +53,7 @@ const Favourites = () => {
   
 
   return (
-    <div className="bg-[#1b1b1b] py-10 text-white h-screen">
+    <div className="bg-[#1b1b1b] py-10 text-white h-full">
       <div className="w-[80%] mx-auto">
       <div className="flex items-center gap-2 my-10">
                 <div className="w-[10px] h-[40px] bg-[#DD003F]">

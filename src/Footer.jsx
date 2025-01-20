@@ -4,7 +4,7 @@ const Footer = () => {
             <div className="h-[1px] w-full bg-[#DD003F]"></div>
             <div className="bg-[#1b1b1b]">
                 <div className="flex flex-col items-center justify-center gap-2 pt-10">
-                    <img className="w-28" src="/public/images/logo.png" alt="CineFlix Logo" />
+                    <img className="w-28" src="/images/logo.png" alt="CineFlix Logo" />
                     <p className="text-[#DD003F] font-medium text-xl">CineFlix</p>
                 </div>
 
