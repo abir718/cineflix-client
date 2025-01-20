@@ -1,6 +1,6 @@
 ## CineFlix
 
-Our website simplifies trip planning by offering destination guides, bookings, and personalized recommendations. It ensures a seamless travel experience with tools like itineraries, travel tips, and reviews.
+Our website provides information about movies from where you can learn about top movies or watch trailer of upcoming movies.
 
 Live link : https://cineflix-a699a.web.app/
 Backup link : https://phero-cineflix-a10.netlify.app/
