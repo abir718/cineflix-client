@@ -61,7 +61,7 @@ const Favourites = () => {
                 <p className="text-white text-3xl font-bold">Your Favourites</p>
             </div>
         {filteredMovies.length > 0 ? (
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
             {filteredMovies.map((movie) => (
               <div key={movie._id} className="bg-[#232323] p-4 rounded-lg shadow-md">
                 <img src={movie.poster} className="w-full h-48 object-cover mb-4 rounded"/>

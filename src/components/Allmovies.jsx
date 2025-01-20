@@ -18,17 +18,17 @@ const Allmovies = () => {
 
   return (
     <div className="bg-[#1b1b1b] py-10 ">
-      <div className="w-[70%] mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-3 py-10 ">
+      <div className="lg:w-[70%] py-10 mx-auto flex items-center flex-col md:flex-row justify-between">
+        <div className="flex items-center gap-3 lg:py-10 ">
           <div className="w-[10px] h-[40px] bg-[#DD003F]"></div>
-          <p className="text-white text-3xl font-bold">Add Movies</p>
+          <p className="text-white text-3xl font-bold">All Movies</p>
         </div>
         <div>
           <input type="text" placeholder="Search..."  value={search} onChange={handleSearch} className="text-gray-400 input bg-[#282828] border-gray-500 input-bordered" />
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <div className=" grid grid-cols-3 gap-x-10">
+        <div className=" grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-x-10">
           {movies.map((movie) => (
             <div
               key={movie._id}

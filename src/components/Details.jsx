@@ -67,7 +67,7 @@ const Details = () => {
   return (
     <div className="bg-[#1b1b1b] h-screen">
       <div className="py-10">
-        <div className="w-[80%] mx-auto grid grid-cols-3">
+        <div className="w-[80%] mx-auto">
           {movie?._id ? (
             <div className="mb-10 bg-[#232323] w-fit rounded-lg p-6 gap-4">
               <div className="flex items-center gap-8">

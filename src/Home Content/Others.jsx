@@ -2,14 +2,15 @@
 
 const Others = ({theme}) => {
     return (
-        <div className="mx-auto w-[80%]">
+        <div className="mx-auto w-[80%] ">
             <div>
             <div className="flex items-center gap-2 my-10">
                 <div className="w-[10px] h-[40px] bg-[#DD003F]">
                 </div>
                 <p className={`text-3xl font-bold ${theme === "dark" ? "text-white" : "text-black"}`}>Top Rated</p>
             </div>
-            <div className="flex items-center gap-6 pb-10">
+            <div className="flex items-center justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 pb-10">
             <div className={`w-fit p-3 rounded-lg flex flex-col gap-2 ${theme === "dark" ? "bg-[#232323]" : "bg-[#e4e4e4]"}`}>
                     <img className="w-52 h-72 rounded-lg" src="https://m.media-amazon.com/images/M/MV5BYjk1Y2U4MjQtY2ZiNS00OWQyLWI3MmYtZWUwNmRjYWRiNWNhXkEyXkFqcGc@._V1_.jpg" alt="" />
                     <div className="flex items-center justify-around">
@@ -71,13 +72,15 @@ const Others = ({theme}) => {
                 </div>
             </div>
             </div>
-            <div>
-            <div>
+            </div>
+
+            <div className="">
     <div className="flex items-center gap-2 my-10">
         <div className="w-[10px] h-[40px] bg-[#DD003F]"></div>
         <p className={`text-3xl font-bold ${theme === "dark" ? "text-white" : "text-black"}`}>Upcoming</p>
     </div>
-    <div className="flex items-center gap-6 pb-10">
+    <div className="flex items-center justify-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 pb-10">
 
     <div className={`w-fit p-3 rounded-lg flex flex-col gap-2 ${theme === "dark" ? "bg-[#232323]" : "bg-[#e4e4e4]"}`}>
             <img className="w-52 h-72 rounded-lg" src="https://m.media-amazon.com/images/M/MV5BNTc0YmQxMjEtODI5MC00NjFiLTlkMWUtOGQ5NjFmYWUyZGJhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Dune: Part Two" />
@@ -131,7 +134,6 @@ const Others = ({theme}) => {
             </a>
         </div>
 
-
         <div className={`w-fit p-3 rounded-lg flex flex-col gap-2 ${theme === "dark" ? "bg-[#232323]" : "bg-[#e4e4e4]"}`}>
             <img className="w-52 h-72 rounded-lg" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2024/07/gladiator-2-2024-new-film-poster.jpg" alt="Gladiator 2" />
             <div className="flex items-center justify-around">
@@ -144,7 +146,6 @@ const Others = ({theme}) => {
                 </button>
             </a>
         </div>
-
 
         <div className={`w-fit p-3 rounded-lg flex flex-col gap-2 ${theme === "dark" ? "bg-[#232323]" : "bg-[#e4e4e4]"}`}>
             <img className="w-52 h-72 rounded-lg" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2023/02/zootopia-2-temp-poster.jpg" alt="Zootopia 2" />
@@ -159,9 +160,10 @@ const Others = ({theme}) => {
             </a>
         </div>
     </div>
-</div>
+    </div>
 
-            </div>
+        </div>
+
         </div>
 
     );
