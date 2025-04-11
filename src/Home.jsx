@@ -5,7 +5,7 @@ import Footer from './StaticPage/Footer'
 
 function Home() {
   return (
-    <div>
+    <div className='bg-[#1b1b1b]'>
         <Header></Header>
         <Outlet></Outlet>
         <Footer></Footer>
