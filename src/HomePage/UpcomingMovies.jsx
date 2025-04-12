@@ -37,7 +37,7 @@ function UpcomingMovies() {
             </div>
             <div className='grid grid-cols-6 mx-auto w-[90%]'>
                 {upcoming.map(movie => (
-                    <div className='bg-[#232323] w-fit p-3 rounded-lg' key={movie.id}>
+                    <div className='bg-[#232323] w-fit p-3 rounded-lg border-[2px] border-transparent hover:border-[#DD003F] hover:border-b-[#DD003F]' key={movie.id}>
                         <img className='w-52 rounded-lg' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
                         <div className='flex justify-between items-center mt-2'>
                             <h1 className='text-white w-40 text-lg'>{movie.original_title}</h1>
