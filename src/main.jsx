@@ -31,11 +31,11 @@ const router = createBrowserRouter([
           const recommendations = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/recommendations?api_key=${API_KEY}`)
           const loadDetails = await details.json(); 
           const loadImages = await images.json(); 
-          const loadVidoes = await videos.json(); 
+          const loadVideos = await videos.json(); 
           const loadCredits = await credits.json(); 
           const loadReviews = await reviews.json(); 
           const loadRecommendations = await recommendations.json(); 
-          return { loadDetails , loadImages , loadVidoes , loadCredits , loadReviews , loadRecommendations };
+          return { loadDetails , loadImages , loadVideos , loadCredits , loadReviews , loadRecommendations };
         },
         
       }
