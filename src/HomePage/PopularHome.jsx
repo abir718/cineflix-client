@@ -21,8 +21,8 @@ function PopularHome() {
             </div>
             <div className='grid grid-cols-6 mx-auto w-[90%]'>
                 {popular.slice(0, 6).map((pop => (
-                    <div className='bg-[#232323] w-fit p-3 rounded-lg' key={pop.id}>
-                        <img className='w-52 rounded-lg' src={`https://image.tmdb.org/t/p/w500${pop.poster_path}`} alt={pop.original_title} />
+                    <div className='bg-[#232323] w-fit p-3 rounded-lg group' key={pop.id}>
+                        <img className='w-52 rounded-lg transition duration-300 group-hover:brightness-75' src={`https://image.tmdb.org/t/p/w500${pop.poster_path}`} alt={pop.original_title} />
                         <div className='flex justify-between items-center mt-2'>
                             <h1 className='text-white w-40 text-lg'>{pop.original_title}</h1>
                             <p className="text-sm font-medium text-gray-400">⭐ {Math.round(pop.vote_average)}/10</p>

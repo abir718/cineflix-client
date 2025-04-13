@@ -12,7 +12,7 @@ function UpcomingMovies() {
                 const [page1, page2, page3 , page4] = await Promise.all([
                     fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&api_key=${API_KEY}`).then(res => res.json()),
                     fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=2&api_key=${API_KEY}`).then(res => res.json()),
-                    fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=5&api_key=${API_KEY}`).then(res => res.json()),
+                    fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=6&api_key=${API_KEY}`).then(res => res.json()),
                     fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=10&api_key=${API_KEY}`).then(res => res.json())
 
                 ]);
@@ -37,12 +37,13 @@ function UpcomingMovies() {
             </div>
             <div className='grid grid-cols-6 mx-auto w-[90%]'>
                 {upcoming.map(movie => (
-                    <div className='bg-[#232323] w-fit p-3 rounded-lg border-[2px] border-transparent hover:border-[#DD003F] hover:border-b-[#DD003F]' key={movie.id}>
-                        <img className='w-52 rounded-lg' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
-                        <div className='flex justify-between items-center mt-2'>
-                            <h1 className='text-white w-40 text-lg'>{movie.original_title}</h1>
+                    <div className='bg-[#232323] w-fit p-3 rounded-lg group' key={movie.id}>
+                        <img className='w-52 rounded-lg transition duration-300 group-hover:brightness-75' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
+                        <div className='flex justify-between items-start mt-2'>
+                            <h1 className='text-white w-40 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer'>{movie.original_title}</h1>
                             <p className="text-sm font-medium text-gray-400">⭐ {movie.vote_average ? Math.round(movie.vote_average)+'/10' : 'N/A'}</p>
                         </div>
+                        <button className='border-[2px] w-full py-2 px-3 border-[#DD003F] text-[#DD003F] rounded-lg'>View Details</button>
                     </div>
                 ))}
             </div>

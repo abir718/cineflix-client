@@ -24,9 +24,8 @@ const Header = () => {
 
                 <div className={`flex flex-col md:flex-row md:items-center gap-6 md:gap-8 ${isNavOpen ? "flex" : "hidden"} md:flex`}>
                     <NavLink className={({ isActive }) => `font-medium ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/">Home</NavLink>
-                    <NavLink className={({ isActive }) => `font-medium ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/news">News</NavLink>
-                    <NavLink className={({ isActive }) => `font-medium ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/allmovies">All Movies</NavLink>
-                    <NavLink className={({ isActive }) => `font-medium ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/addmovies">Add Movies</NavLink>
+                    <NavLink className={({ isActive }) => `font-medium ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/tv-shows">TV Shows</NavLink>
+                    <NavLink className={({ isActive }) => `font-medium ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/browse-movies">Browse Movies</NavLink>
                     <NavLink className={({ isActive }) => `font-medium ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/favourites">My Favourites</NavLink>
                 </div>
 
