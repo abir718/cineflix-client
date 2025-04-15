@@ -13,8 +13,8 @@ function UpcomingMovies() {
                 const [page1, page2, page3, page4] = await Promise.all([
                     fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&api_key=${API_KEY}`).then(res => res.json()),
                     fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=2&api_key=${API_KEY}`).then(res => res.json()),
-                    fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=6&api_key=${API_KEY}`).then(res => res.json()),
-                    fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=10&api_key=${API_KEY}`).then(res => res.json())
+                    fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=3&api_key=${API_KEY}`).then(res => res.json()),
+                    fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=4&api_key=${API_KEY}`).then(res => res.json())
                 ]);
 
                 const combinedResults = [...page1.results, ...page2.results, ...page3.results, ...page4.results];
@@ -43,7 +43,7 @@ function UpcomingMovies() {
                             <Link to={`/movie-details/${movie.id}`}>
                                 <h1 className='text-white w-40 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer'>{movie.original_title}</h1>
                             </Link>
-                            <p className="text-sm font-medium text-gray-400">⭐ {movie.vote_average ? Math.round(movie.vote_average) + '/10' : 'N/A'}</p>
+                            <p className="text-sm font-medium text-gray-400 mt-1">⭐ {movie.vote_average ? Math.round(movie.vote_average) + '/10' : 'N/A'}</p>
                         </div>
                         <div className='flex items-center gap-3 justify-between'>
                             <button className='py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#232323] transition duration-300 font-medium'>+ Watchlist</button>

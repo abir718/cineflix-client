@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 function Trending() {
 
@@ -23,11 +24,18 @@ function Trending() {
                 {trending.slice(0, 6).map((pop => (
                     <div className='bg-[#232323] w-fit p-3 rounded-lg group' key={pop.id}>
                         <img className='w-52 rounded-lg transition duration-300 group-hover:brightness-75' src={`https://image.tmdb.org/t/p/w500${pop.poster_path}`} alt={pop.original_title} />
-                        <div className='flex justify-between items-center mt-2'>
-                            <h1 className='text-white w-40 text-lg '>{pop.original_title}</h1>
-                            <p className="text-sm font-medium text-gray-400">⭐ {pop.vote_average ? Math.round(pop.vote_average) : 'N/A'}/10</p>
+                        <div className='flex justify-between mt-2'>
+                            <Link to={`/movie-details/${pop.id}`}>
+                                <h1 className='text-white w-40 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer'>{pop.original_title}</h1>
+                            </Link>                            
+                            <p className="text-sm font-medium text-gray-400 mt-1">⭐ {pop.vote_average ? Math.round(pop.vote_average) : 'N/A'}/10</p>
                         </div>
-
+                        <div className='flex items-center gap-3 justify-between'>
+                            <button className='py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#232323] transition duration-300 font-medium'>+ Watchlist</button>
+                            <div className='hover:bg-[#363636] p-3 rounded-full transition duration-300 '>
+                                <button className='w-6 h-6 flex items-center justify-center font-medium text-xl border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer'>i</button>
+                            </div>
+                        </div>
                     </div>
                 )))}
             </div>
