@@ -27,15 +27,15 @@ const router = createBrowserRouter([
           const images = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/images?api_key=${API_KEY}`)
           const videos = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=${API_KEY}`)
           const credits = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${API_KEY}`)
-          const reviews = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/reviews?api_key=${API_KEY}`)
+          const similar = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=${API_KEY}`)
           const recommendations = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/recommendations?api_key=${API_KEY}`)
           const loadDetails = await details.json(); 
           const loadImages = await images.json(); 
           const loadVideos = await videos.json(); 
           const loadCredits = await credits.json(); 
-          const loadReviews = await reviews.json(); 
+          const loadsimilar = await similar.json(); 
           const loadRecommendations = await recommendations.json(); 
-          return { loadDetails , loadImages , loadVideos , loadCredits , loadReviews , loadRecommendations };
+          return { loadDetails , loadImages , loadVideos , loadCredits , loadsimilar , loadRecommendations };
         },
         
       }
