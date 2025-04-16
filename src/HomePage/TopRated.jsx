@@ -12,7 +12,7 @@ function TopRated() {
             .then((res) => res.json())
             .then((data) => { setTop(data.results) })
     }, [API_KEY]);
-    console.log(top)
+
 
     return (
         <div>

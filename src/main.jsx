@@ -5,6 +5,7 @@ import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 import Home from './Home.jsx';
 import HomeContent from './HomePage/HomeContent.jsx';
 import MovieDetails from './MovieDetails.jsx';
+import Login from './Components/Login.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
           return { loadDetails , loadImages , loadVideos , loadCredits , loadsimilar , loadRecommendations };
         },
         
-      }
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
     ]
   },
 ]);

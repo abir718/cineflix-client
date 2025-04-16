@@ -12,7 +12,7 @@ function Trending() {
             .then((res) => res.json())
             .then((data) => { setPopular(data.results) })
     }, [API_KEY]);
-    console.log(trending)
+
 
     return (
         <div>

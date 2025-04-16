@@ -12,7 +12,7 @@ function PopularHome() {
             .then((res) => res.json())
             .then((data) => { setPopular(data.results) })
     }, [API_KEY]);
-    console.log(popular)
+
 
     return (
         <div>

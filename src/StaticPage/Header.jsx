@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const Header = () => {
@@ -31,9 +31,11 @@ const Header = () => {
 
                 <div>
 
-                        <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
+                        <Link to={`/login`}>
                             <button className="font-medium border-[2px] border-[#DD003F] text-[#DD003F] px-3 py-2 rounded-lg hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500">Log In</button>
-                        </div>
+                        </Link>
+                    </div>
 
 
                 </div>
