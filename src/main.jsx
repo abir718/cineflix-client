@@ -6,6 +6,7 @@ import Home from './Home.jsx';
 import HomeContent from './HomePage/HomeContent.jsx';
 import MovieDetails from './MovieDetails.jsx';
 import Login from './Components/Login.jsx';
+import Register from './Components/Register.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>
+      },      
+      {
+        path: "/register",
+        element: <Register></Register>
       },
     ]
   },
