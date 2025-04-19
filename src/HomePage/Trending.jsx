@@ -12,7 +12,7 @@ function Trending() {
     }, [API_KEY]);
 
     return (
-        <MovieSlider title="Trending This Week" movies={trending} />
+        <MovieSlider title="Trending This Week" movies={trending} path='/trending-movies' />
     );
 }
 

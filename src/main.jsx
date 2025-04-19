@@ -7,6 +7,11 @@ import HomeContent from './HomePage/HomeContent.jsx';
 import MovieDetails from './MovieDetails.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
+import AllTopMovies from './DetailedPreview/AllTopMovies.jsx';
+import AllPopularMovies from './DetailedPreview/AllPopularMovies.jsx';
+import AllUpcomingMovies from './DetailedPreview/AllUpcomingMovies.jsx';
+import AllTrendingMovies from './DetailedPreview/AllTrendingMovies.jsx';
+import AllPopularPeople from './DetailedPreview/AllPopularPeople.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -48,6 +53,26 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/top-movies",
+        element: <AllTopMovies></AllTopMovies>
+      },
+      {
+        path: "/popular-movies",
+        element: <AllPopularMovies></AllPopularMovies>
+      },
+      {
+        path: "/upcoming-movies",
+        element: <AllUpcomingMovies></AllUpcomingMovies>
+      },
+      {
+        path: "/trending-movies",
+        element: <AllTrendingMovies></AllTrendingMovies>
+      },
+      {
+        path: "/popular-people",
+        element: <AllPopularPeople></AllPopularPeople>
       },
     ]
   },

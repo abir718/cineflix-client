@@ -33,7 +33,7 @@ function UpcomingMovies() {
         fetchPages();
     }, [API_KEY]);
 
-    return <MovieSlider movies={upcoming} title="Upcoming Movies" />;
+    return <MovieSlider movies={upcoming} title="Upcoming Movies" path="/upcoming-movies" />;
 }
 
 export default UpcomingMovies;

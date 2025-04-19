@@ -4,6 +4,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import PrevArrow from '../Components/PrevArrow';
 import NextArrow from '../Components/NextArrow';
+import { MdOutlineArrowForwardIos } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 
 function PopularPeople() {
@@ -44,8 +46,11 @@ function PopularPeople() {
     return (
         <div className="w-[95%] mx-auto py-6">
             <div className="flex gap-3 items-center">
-                <div className="w-[10px] h-[40px] bg-[#DD003F]"></div>
-                <p className="text-3xl font-bold text-white">Popular People</p>
+                <div className="w-[8px] h-[38px] bg-[#DD003F]"></div>
+                <Link to={`/popular-people`} className=' flex items-center gap-3'>
+                <p className="text-3xl font-medium text-white hover:text-[#DD003F] transition duration-300">Popular People</p>
+                <MdOutlineArrowForwardIos className='text-[#DD003F] size-8 relative top-[3px]'/>
+                </Link>
             </div>
 
             <div className="mx-auto w-[95%] mt-4">

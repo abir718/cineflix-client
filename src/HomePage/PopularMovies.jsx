@@ -11,7 +11,7 @@ function PopularMovies() {
             .then((data) => setPopular(data.results));
     }, [API_KEY]);
 
-    return <MovieSlider title="Popular Movies" movies={popular} />;
+    return <MovieSlider title="Popular Movies" movies={popular} path='/popular-movies' />;
 }
 
 export default PopularMovies;

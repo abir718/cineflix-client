@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 
-const MovieSlider = ({ movies = [], title = 'Movies' }) => {
+const MovieSlider = ({ movies = [], title = 'Movies' , path="/" }) => {
     const settings = {
         dots: false,
         infinite: false,
@@ -35,14 +35,13 @@ const MovieSlider = ({ movies = [], title = 'Movies' }) => {
 
     return (
         <div className="w-[95%] mx-auto py-6">
-
             <div className="flex gap-3 items-center">
                 <div className="w-[8px] h-[38px] bg-[#DD003F]"></div>
-                <p className="text-3xl font-bold text-white ">{title}</p>
+                <Link to={path} className=' flex items-center gap-3'>
+                <p className="text-3xl font-medium text-white hover:text-[#DD003F] transition duration-300">{title}</p>
                 <MdOutlineArrowForwardIos className='text-[#DD003F] size-8 relative top-[3px]'/>
+                </Link>
             </div>
-
-
 
             <div className="mx-auto w-[95%] mt-4">
                 <Slider {...settings}>

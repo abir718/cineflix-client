@@ -12,7 +12,7 @@ function TopRated() {
     }, [API_KEY]);
 
     return (
-        <MovieSlider movies={top} title="Top Movies" />
+        <MovieSlider movies={top} title="Top Movies" path="/top-movies" />
     );
 }
 
