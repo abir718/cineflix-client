@@ -1,5 +1,5 @@
 import React from 'react'
-import PopularHome from './PopularHome'
+import PopularMovies from './PopularMovies'
 import TopRated from './TopRated'
 import UpcomingMovies from './UpcomingMovies'
 import Trending from './Trending'
@@ -9,7 +9,7 @@ function HomeContent() {
   return (
     <div>
         <TopRated></TopRated>
-        <PopularHome></PopularHome>
+        <PopularMovies></PopularMovies>
         <UpcomingMovies></UpcomingMovies>
         <Trending></Trending>
         <PopularPeople></PopularPeople>
