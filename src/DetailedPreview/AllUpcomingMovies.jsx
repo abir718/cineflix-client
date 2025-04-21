@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
 function AllUpcomingMovies() {
   const [allMovies, setAllMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

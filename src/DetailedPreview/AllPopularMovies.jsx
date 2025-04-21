@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MdOutlineArrowForwardIos } from 'react-icons/md';
 
 function AllPopularMovies() {
     const [allMovies, setAllMovies] = useState([]);
