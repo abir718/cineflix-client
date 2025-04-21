@@ -58,7 +58,7 @@ function MovieDetails() {
                             <p className="text-3xl font-medium text-white">All Videos</p>
                         </div>
                         <div className='grid grid-cols-3 my-4 gap-4'>
-                            {loadVideos.results.map((result) => (
+                            {loadVideos.results.slice(0,6).map((result) => (
                                 <div key={result.id}>
                                     <div className="aspect-video">
                                         <iframe className="rounded-lg hover:brightness-75 transition duration-300 w-full h-full" src={`https://www.youtube.com/embed/${result.key}`}></iframe>

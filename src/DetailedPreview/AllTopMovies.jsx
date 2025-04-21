@@ -1,11 +1,116 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { MdOutlineArrowForwardIos } from 'react-icons/md';
 
 function AllTopMovies() {
-  return (
-    <div>
-        <h1>All top movies</h1>
-    </div>
-  )
+    const [allMovies, setAllMovies] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const API_KEY = import.meta.env.VITE_API_KEY;
+
+    useEffect(() => {
+        const fetchMovies = async () => {
+            const requests = [];
+            for (let i = 1; i <= 35; i++) {
+                requests.push(
+                    fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${i}&api_key=${API_KEY}`)
+                        .then(res => res.json())
+                );
+            }
+            const pages = await Promise.all(requests);
+            const combined = pages.flatMap(page => page.results);
+            setAllMovies(combined);
+        };
+        fetchMovies();
+    }, [API_KEY]);
+
+
+    const moviesPerPage = 35;
+    const totalPages = Math.ceil(allMovies.length / moviesPerPage);
+    const startIndex = (currentPage - 1) * moviesPerPage;
+    const paginatedMovies = allMovies.slice(startIndex, startIndex + moviesPerPage);
+
+    return (
+        <div className="w-[95%] mx-auto py-6">
+            <div className="flex gap-3 items-center">
+                <div className="w-[8px] h-[38px] bg-[#DD003F]"></div>
+                <Link to="/top-movies" className="flex items-center gap-3">
+                    <p className="text-3xl font-medium text-white hover:text-[#DD003F] transition duration-300">
+                        Top Movies
+                    </p>
+                    <MdOutlineArrowForwardIos className="text-[#DD003F] size-8 relative top-[3px]" />
+                </Link>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 mt-6">
+                {paginatedMovies.map((movie) => (
+                    <div key={movie.id} className="bg-[#232323] p-2 rounded-lg group w-fit">
+                        <img className="lg:w-52 w-40 mx-auto rounded-lg group-transition duration-300 group-hover:brightness-75" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
+                        <div className="flex justify-between mt-2">
+                            <Link to={`/movie-details/${movie.id}`}>
+                                <h1 className="text-white w-fit text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">{movie.title}</h1>
+                            </Link>
+                            <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(movie.vote_average)}/10</p>
+                        </div>
+                        <div className="flex items-center justify-between">
+                            <button className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#232323] transition duration-300 font-medium">
+                                + Watchlist
+                            </button>
+                            <div className="hover:bg-[#363636] p-3 rounded-full transition duration-300">
+                                <button className="w-6 h-6 flex items-center justify-center font-medium text-xl border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer">
+                                    i
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center mt-10 gap-2">
+                <button
+                    onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 bg-[#DD003F] text-white rounded disabled:opacity-50 cursor-pointer"
+                >
+                    Previous
+                </button>
+
+                {currentPage > 3 && (
+                    <>
+                        <button
+                            onClick={() => setCurrentPage(1)}
+                            className={`px-3 py-1 rounded cursor-pointer ${currentPage === 1 ? 'bg-[#DD003F] text-white' : 'text-[#DD003F] border border-[#DD003F]'}`}
+                        >
+                            1
+                        </button>
+                        {currentPage > 4 && <span className="px-2 text-[#DD003F]">...</span>}
+                    </>
+                )}
+
+                {Array.from({ length: totalPages }, (_, i) => i + 1)
+                    .filter(page => Math.abs(currentPage - page) <= 2)
+                    .map(page => (
+                        <button key={page} onClick={() => setCurrentPage(page)} className={`px-3 py-1 rounded cursor-pointer ${currentPage === page ? 'bg-[#DD003F] text-white' : 'text-[#DD003F] border border-[#DD003F]'}`}>{page}</button>
+                    ))}
+
+                {currentPage < totalPages - 2 && (
+                    <>
+                        {currentPage < totalPages - 3 && <span className="px-2 text-[#DD003F]">...</span>}
+                        <button onClick={() => setCurrentPage(totalPages)} className={`px-3 py-1 rounded cursor-pointer ${currentPage === totalPages ? 'bg-[#DD003F] text-white' : 'text-[#DD003F] border border-[#DD003F]'}`}>{totalPages}</button>
+                    </>
+                )}
+
+                <button
+                    onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 bg-[#DD003F] text-white rounded disabled:opacity-50 cursor-pointer"
+                >
+                    Next
+                </button>
+            </div>
+
+
+        </div>
+    );
 }
 
-export default AllTopMovies
+export default AllTopMovies;
