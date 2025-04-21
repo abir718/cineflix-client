@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MdOutlineArrowForwardIos } from 'react-icons/md';
+
 
 function AllTopMovies() {
     const [allMovies, setAllMovies] = useState([]);
@@ -33,12 +33,7 @@ function AllTopMovies() {
         <div className="w-[95%] mx-auto py-6">
             <div className="flex gap-3 items-center">
                 <div className="w-[8px] h-[38px] bg-[#DD003F]"></div>
-                <Link to="/top-movies" className="flex items-center gap-3">
-                    <p className="text-3xl font-medium text-white hover:text-[#DD003F] transition duration-300">
-                        Top Movies
-                    </p>
-                    <MdOutlineArrowForwardIos className="text-[#DD003F] size-8 relative top-[3px]" />
-                </Link>
+                    <p className="text-3xl font-medium text-white">Top Movies</p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 mt-6">
@@ -47,7 +42,7 @@ function AllTopMovies() {
                         <img className="lg:w-52 w-40 mx-auto rounded-lg group-transition duration-300 group-hover:brightness-75" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
                         <div className="flex justify-between mt-2">
                             <Link to={`/movie-details/${movie.id}`}>
-                                <h1 className="text-white w-fit text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">{movie.title}</h1>
+                            <h1 className="text-white w-40 h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer" title={movie.title}>{movie.title.length > 36 ? movie.title.slice(0, 36) + '...' : movie.title}</h1>
                             </Link>
                             <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(movie.vote_average)}/10</p>
                         </div>
@@ -109,7 +104,7 @@ function AllTopMovies() {
             </div>
 
 
-        </div>
+        </div >
     );
 }
 
