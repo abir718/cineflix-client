@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import MovieSlider from '../Components/MovieSlider';
 import TvSlider from '../Components/TvSlider';
 
 function AiringToday() {
