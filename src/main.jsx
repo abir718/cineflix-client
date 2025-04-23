@@ -12,6 +12,7 @@ import AllPopularMovies from './DetailedPreview/AllPopularMovies.jsx';
 import AllUpcomingMovies from './DetailedPreview/AllUpcomingMovies.jsx';
 import AllTrendingMovies from './DetailedPreview/AllTrendingMovies.jsx';
 import AllPopularPeople from './DetailedPreview/AllPopularPeople.jsx';
+import TvContent from './TvPage/TvContent.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomeContent></HomeContent>
       },
+      {
+        path: "/tv-shows",
+        element: <TvContent></TvContent>
+      }, 
       {
         path: "/movie-details/:id",
         element: <MovieDetails></MovieDetails>,
