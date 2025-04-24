@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function AllAiringToday() {
+function AllTopRatedTv() {
   const [allAiring, setAllAiring] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const API_KEY = import.meta.env.VITE_API_KEY;
@@ -11,7 +11,7 @@ function AllAiringToday() {
             const requests = [];
             for (let i = 1; i <= 35; i++) {
                 requests.push(
-                    fetch(`https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=${i}&api_key=${API_KEY}`)
+                    fetch(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=${i}&api_key=${API_KEY}`)
                         .then(res => res.json())
                 );
             }
@@ -32,7 +32,7 @@ function AllAiringToday() {
     <div className="w-[95%] mx-auto py-6">
       <div className="flex gap-3 items-center">
         <div className="w-[8px] h-[38px] bg-[#DD003F]"></div>
-        <p className="text-3xl font-medium text-white">Airing Today</p>
+        <p className="text-3xl font-medium text-white">Top Rated TV Shows</p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 mt-6">
@@ -107,4 +107,4 @@ function AllAiringToday() {
   );
 }
 
-export default AllAiringToday;
+export default AllTopRatedTv;
