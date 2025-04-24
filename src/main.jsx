@@ -17,6 +17,7 @@ import AllAiringToday from './TvDetails/AllAiringToday.jsx';
 import AllTopRatedTv from './TvDetails/AllTopRatedTv.jsx';
 import AllPopularTv from './TvDetails/AllPopularTv.jsx';
 import AllAiringThisWeek from './TvDetails/AllAiringThisWeek.jsx';
+import TvDetails from './TvDetails/TvDetails.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -98,6 +99,27 @@ const router = createBrowserRouter([
       {
         path: "/airing-week",
         element: <AllAiringThisWeek></AllAiringThisWeek>
+      },
+      {
+        path: "/tv-details/:id",
+        element: <TvDetails></TvDetails>,
+
+        loader: async ({ params }) => {
+          const details = await fetch(`https://api.themoviedb.org/3/tv/${params.id}?api_key=${API_KEY}`)
+          const images = await fetch(`https://api.themoviedb.org/3/tv/${params.id}/images?api_key=${API_KEY}`)
+          const videos = await fetch(`https://api.themoviedb.org/3/tv/${params.id}/videos?api_key=${API_KEY}`)
+          const credits = await fetch(`https://api.themoviedb.org/3/tv/${params.id}/credits?api_key=${API_KEY}`)
+          const similar = await fetch(`https://api.themoviedb.org/3/tv/${params.id}/similar?api_key=${API_KEY}`)
+          const recommendations = await fetch(`https://api.themoviedb.org/3/tv/${params.id}/recommendations?api_key=${API_KEY}`)
+          const loadDetails = await details.json(); 
+          const loadImages = await images.json(); 
+          const loadVideos = await videos.json(); 
+          const loadCredits = await credits.json(); 
+          const loadsimilar = await similar.json(); 
+          const loadRecommendations = await recommendations.json(); 
+          return { loadDetails , loadImages , loadVideos , loadCredits , loadsimilar , loadRecommendations };
+        },
+        
       },
     ]
   },
