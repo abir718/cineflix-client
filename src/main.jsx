@@ -16,6 +16,7 @@ import TvContent from './TvPage/TvContent.jsx';
 import AllAiringToday from './TvDetails/AllAiringToday.jsx';
 import AllTopRatedTv from './TvDetails/AllTopRatedTv.jsx';
 import AllPopularTv from './TvDetails/AllPopularTv.jsx';
+import AllAiringThisWeek from './TvDetails/AllAiringThisWeek.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
       {
         path: "/popular-tv",
         element: <AllPopularTv></AllPopularTv>
+      },
+      {
+        path: "/airing-week",
+        element: <AllAiringThisWeek></AllAiringThisWeek>
       },
     ]
   },

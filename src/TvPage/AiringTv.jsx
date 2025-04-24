@@ -12,7 +12,7 @@ function PopularTv() {
     }, [API_KEY]);
 
     return (
-        <TvSlider title="Airing This Week" series={airing} path='/trending-movies' />
+        <TvSlider title="Airing This Week" series={airing} path='/airing-week' />
     );
 }
 
