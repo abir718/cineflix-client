@@ -41,7 +41,7 @@ function AllAiringToday() {
             <img className="lg:w-52 w-40 mx-auto rounded-lg group-transition duration-300 group-hover:brightness-75" src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} />
             <div className="flex justify-between mt-2">
               <Link to={`/tv-details/${tv.id}`}>
-                <h1 className="text-white w-40 h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer" title={tv.original_name}>{tv.original_name.length > 36 ? tv.original_name.slice(0, 36) + '...' : tv.original_name}</h1>
+                <h1 className="text-white w-40 h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer" title={tv.name}>{tv.name.length > 36 ? tv.name.slice(0, 36) + '...' : tv.name}</h1>
               </Link>
               <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(tv.vote_average)}/10</p>
             </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function AllTopRatedTv() {
-  const [allAiring, setAllAiring] = useState([]);
+function AllPopularTv() {
+  const [allPopular, setAllPopular] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -11,22 +11,22 @@ function AllTopRatedTv() {
             const requests = [];
             for (let i = 1; i <= 35; i++) {
                 requests.push(
-                    fetch(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=${i}&api_key=${API_KEY}`)
+                    fetch(`https://api.themoviedb.org/3/tv/popular?language=en-US&page=${i}&api_key=${API_KEY}`)
                         .then(res => res.json())
                 );
             }
             const pages = await Promise.all(requests);
             const combined = pages.flatMap(page => page.results);
-            setAllAiring(combined);
+            setAllPopular(combined);
         };
         fetchMovies();
     }, [API_KEY]);
 
 
   const moviesPerPage = 35;
-  const totalPages = Math.ceil(allAiring.length / moviesPerPage);
+  const totalPages = Math.ceil(allPopular.length / moviesPerPage);
   const startIndex = (currentPage - 1) * moviesPerPage;
-  const paginatedTv = allAiring.slice(startIndex, startIndex + moviesPerPage);
+  const paginatedTv = allPopular.slice(startIndex, startIndex + moviesPerPage);
 
   return (
     <div className="w-[95%] mx-auto py-6">
@@ -107,4 +107,4 @@ function AllTopRatedTv() {
   );
 }
 
-export default AllTopRatedTv;
+export default AllPopularTv;

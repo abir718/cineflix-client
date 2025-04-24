@@ -12,7 +12,7 @@ function PopularTv() {
     }, [API_KEY]);
 
     return (
-        <TvSlider title="Popular Tv Shows" series={trending} path='/trending-movies' />
+        <TvSlider title="Popular Tv Shows" series={trending} path='/popular-tv' />
     );
 }
 

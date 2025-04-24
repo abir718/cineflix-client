@@ -4,7 +4,7 @@ import './index.css'
 import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 import Home from './Home.jsx';
 import HomeContent from './HomePage/HomeContent.jsx';
-import MovieDetails from './MovieDetails.jsx';
+import MovieDetails from './DetailedPreview/MovieDetails.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import AllTopMovies from './DetailedPreview/AllTopMovies.jsx';
@@ -14,6 +14,8 @@ import AllTrendingMovies from './DetailedPreview/AllTrendingMovies.jsx';
 import AllPopularPeople from './DetailedPreview/AllPopularPeople.jsx';
 import TvContent from './TvPage/TvContent.jsx';
 import AllAiringToday from './TvDetails/AllAiringToday.jsx';
+import AllTopRatedTv from './TvDetails/AllTopRatedTv.jsx';
+import AllPopularTv from './TvDetails/AllPopularTv.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -83,6 +85,14 @@ const router = createBrowserRouter([
       {
         path: "/airing-today",
         element: <AllAiringToday></AllAiringToday>
+      },
+      {
+        path: "/top-rated-tv",
+        element: <AllTopRatedTv></AllTopRatedTv>
+      },
+      {
+        path: "/popular-tv",
+        element: <AllPopularTv></AllPopularTv>
       },
     ]
   },

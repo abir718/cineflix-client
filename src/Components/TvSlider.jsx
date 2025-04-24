@@ -51,11 +51,11 @@ const TvSlider = ({ series = [], title = 'Tv Series' , path="/" }) => {
                                 <img
                                     className="w-60 mx-auto rounded-lg group-transition duration-300 group-hover:brightness-75"
                                     src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
-                                    alt={series.original_title} 
+                                    alt={series.title} 
                                 />
                                 <div className="flex justify-between mt-2">
                                     <Link to={`/movie-details/${series.id}`}>
-                                        <h1 className="text-white w-48 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">{series.original_name}</h1>
+                                        <h1 className="text-white w-48 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">{series.name}</h1>
                                     </Link>
                                     <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(series.vote_average)}/10</p>
                                 </div>
