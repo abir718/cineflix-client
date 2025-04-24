@@ -12,7 +12,7 @@ function AiringToday() {
     }, [API_KEY]);
 
     return (
-        <TvSlider title="Airing Today" series={airingToday} path='/trending-movies' />
+        <TvSlider title="Airing Today" series={airingToday} path='/airing-today' />
     );
 }
 

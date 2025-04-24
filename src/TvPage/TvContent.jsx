@@ -8,8 +8,8 @@ function TvContent() {
   return (
     <div>
         <AiringToday></AiringToday>
-        <PopularTv></PopularTv>
         <TopRatedTv></TopRatedTv>
+        <PopularTv></PopularTv>
         <AiringTv></AiringTv>
     </div>
   )

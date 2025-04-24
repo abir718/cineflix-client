@@ -13,6 +13,7 @@ import AllUpcomingMovies from './DetailedPreview/AllUpcomingMovies.jsx';
 import AllTrendingMovies from './DetailedPreview/AllTrendingMovies.jsx';
 import AllPopularPeople from './DetailedPreview/AllPopularPeople.jsx';
 import TvContent from './TvPage/TvContent.jsx';
+import AllAiringToday from './TvDetails/AllAiringToday.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "/popular-people",
         element: <AllPopularPeople></AllPopularPeople>
+      },
+      {
+        path: "/airing-today",
+        element: <AllAiringToday></AllAiringToday>
       },
     ]
   },
