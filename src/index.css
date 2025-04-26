@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #DD003F !important;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  color: #DD003F !important; 
+  opacity: 0.4;                
+  cursor: default;            
+}
+
