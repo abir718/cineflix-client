@@ -32,14 +32,14 @@ function TvSlides() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3500,
-    pauseOnHover: false,
+    pauseOnHover: true,
     arrows: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
 
   return (
-    <div className="max-w-[1400px] mx-auto relative">
+    <div className="w-[90%] mx-auto relative">
       <Slider {...settings}>
         <div>
           <BreakingBad />
