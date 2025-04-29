@@ -6,6 +6,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos } from 'react-icons/md';
+import StrangerThings from '../Slides/StrangerThings';
+import TheWalkingDead from '../Slides/TheWalkingDead';
 
 function NextArrow(props) {
   const { onClick } = props;
@@ -49,6 +51,12 @@ function TvSlides() {
         </div>
         <div>
           <GameOfThrones />
+        </div>
+        <div>
+          <StrangerThings></StrangerThings>
+        </div>
+        <div>
+          <TheWalkingDead></TheWalkingDead>
         </div>
       </Slider>
     </div>

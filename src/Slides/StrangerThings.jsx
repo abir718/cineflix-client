@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { FaPlay } from "react-icons/fa";
 
-function Sopranos() {
-    const [tvData, setTvData] = useState(null);
+function StrangerThings() {
+ const [tvData, setTvData] = useState(null);
     const API_KEY = import.meta.env.VITE_API_KEY;
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/tv/1398?api_key=${API_KEY}&append_to_response=videos`)
+        fetch(`https://api.themoviedb.org/3/tv/66732?api_key=${API_KEY}&append_to_response=videos`)
             .then(res => res.json())
             .then(data => setTvData(data));
     }, [API_KEY]);
@@ -23,7 +23,7 @@ function Sopranos() {
 
     return (
         <div className='w-full mt-10'>
-            <div className="relative mx-auto h-full px-4 rounded-xl overflow-hidden">
+            <div className="relative h-full px-4 rounded-xl overflow-hidden">
                 <div
                     className="absolute inset-0 bg-cover bg-center opacity-20"
                     style={{ backgroundImage: `url(${bgImage})` }}
@@ -62,4 +62,4 @@ function Sopranos() {
     );
 }
 
-export default Sopranos;
+export default StrangerThings
