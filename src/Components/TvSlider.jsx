@@ -62,7 +62,7 @@ const TvSlider = ({ series = [], title = 'Tv Series', path = "/" }) => {
                                     />
                                     <div className="flex justify-between mt-2">
                                         <Link to={`/tv-details/${item.id}`}>
-                                            <h1 className="text-white w-48 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">
+                                            <h1 className="text-white w-44 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">
                                                 {item.name}
                                             </h1>
                                         </Link>

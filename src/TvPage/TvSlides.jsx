@@ -12,7 +12,7 @@ import TheWalkingDead from '../Slides/TheWalkingDead';
 function NextArrow(props) {
   const { onClick } = props;
   return (
-    <div className="absolute right-0 top-1/2 transform -translate-y-1/2 text-4xl text-[#DD003F] cursor-pointer z-10" onClick={onClick}><MdOutlineArrowForwardIos />
+    <div className="absolute right-0 top-1/2 transform -translate-y-1/2 text-4xl text-[#DD003F] font-light cursor-pointer z-10" onClick={onClick}><MdOutlineArrowForwardIos />
     </div>
   );
 }
@@ -20,7 +20,7 @@ function NextArrow(props) {
 function PrevArrow(props) {
   const { onClick } = props;
   return (
-    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 text-4xl text-[#DD003F] cursor-pointer z-10" onClick={onClick}><MdOutlineArrowBackIosNew />
+    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 text-4xl text-[#DD003F] font-light cursor-pointer z-10" onClick={onClick}><MdOutlineArrowBackIosNew />
     </div>
   );
 }
@@ -41,7 +41,7 @@ function TvSlides() {
   };
 
   return (
-    <div className="w-[90%] mx-auto relative">
+    <div className="w-[85%] mx-auto relative">
       <Slider {...settings}>
         <div>
           <BreakingBad />
