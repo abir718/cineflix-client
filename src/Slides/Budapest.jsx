@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { FaPlay } from "react-icons/fa";
 
-function MissionImpossible() {
+function Budapest() {
     const [movieData, setMovieData] = useState(null);
     const API_KEY = import.meta.env.VITE_API_KEY;
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/575265?api_key=${API_KEY}&append_to_response=videos,credits`)
+        fetch(`https://api.themoviedb.org/3/movie/120467?api_key=${API_KEY}&append_to_response=videos,credits`)
             .then(res => res.json())
             .then(data => setMovieData(data));
     }, [API_KEY]);
@@ -82,4 +82,4 @@ function MissionImpossible() {
     );
 }
 
-export default MissionImpossible;
+export default Budapest;

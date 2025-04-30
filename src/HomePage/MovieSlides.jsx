@@ -11,6 +11,8 @@ import TheWalkingDead from '../Slides/TheWalkingDead';
 import DunePartTwo from '../Slides/DunePartTwo';
 import MissionImpossible from '../Slides/MissionImpossible';
 import Oppenheimer from '../Slides/Oppenheimer';
+import Hereditary from '../Slides/Hereditary';
+import Budapest from '../Slides/Budapest';
 
 function NextArrow(props) {
     const { onClick } = props;
@@ -56,10 +58,10 @@ function MovieSlides() {
                     <Oppenheimer></Oppenheimer>
                 </div>
                 <div>
-                    <StrangerThings></StrangerThings>
+                    <Hereditary></Hereditary>
                 </div>
                 <div>
-                    <TheWalkingDead></TheWalkingDead>
+                    <Budapest></Budapest>
                 </div>
             </Slider>
         </div>

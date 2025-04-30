@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 
 const MovieSlider = ({ movies = [], title = 'Movies', path = "/" }) => {
     return (
-        <div className="w-[95%] mx-auto mt-8">
+        <div className="w-[92%] mx-auto mt-8">
             <div className="flex gap-3 items-center">
                 <div className="w-[8px] h-[38px] bg-[#DD003F]"></div>
                 <Link to={path} className='flex items-center gap-3'>
@@ -54,7 +54,7 @@ const MovieSlider = ({ movies = [], title = 'Movies', path = "/" }) => {
                 >
                     {movies.map((movie) => (
                         <SwiperSlide key={movie.id}>
-                            <div className="px-2">
+                            <div className="px-1">
                                 <div className="bg-[#232323] p-3 w-fit rounded-lg group">
                                     <img
                                         className="w-60 mx-auto rounded-lg transition duration-300 group-hover:brightness-75"
