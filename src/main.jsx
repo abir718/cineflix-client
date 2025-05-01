@@ -18,6 +18,7 @@ import AllTopRatedTv from './TvDetails/AllTopRatedTv.jsx';
 import AllPopularTv from './TvDetails/AllPopularTv.jsx';
 import AllAiringThisWeek from './TvDetails/AllAiringThisWeek.jsx';
 import TvDetails from './TvDetails/TvDetails.jsx';
+import AuthProvider from './AuthProvider.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -127,6 +128,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
