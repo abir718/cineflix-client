@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { authContext } from "../AuthProvider";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const Login = () => {
     let { login, setUser} = useContext(authContext)

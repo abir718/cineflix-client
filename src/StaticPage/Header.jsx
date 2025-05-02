@@ -1,7 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { authContext } from "../AuthProvider";
 
 const Header = () => {
+    let { user, logOut } = useContext(authContext)
     const [isNavOpen, setIsNavOpen] = useState(false);
 
     const toggleNav = () => {
@@ -30,12 +32,27 @@ const Header = () => {
                 </div>
 
                 <div>
+                    {user && user.email ? (<div >
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="avatar">
+                                <div className="w-12 rounded-lg cursor-pointer">
+                                    <img src={user.photoURL} alt="profile" />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu text-gray-400 dropdown-content mt-3 z-[1] p-2 shadow bg-[#212121] rounded-box w-fit">
+                                <li className="hover:bg-black/20"><a>Watchlist</a></li>
+                                <li onClick={logOut} className="hover:bg-black/20"><a>LogOut</a></li>
+                            </ul>
+                        </div>
 
-                    <div className="flex items-center gap-3">
-                        <Link to={`/login`}>
-                            <button className="font-medium border-[2px] border-[#DD003F] text-[#DD003F] px-3 py-2 rounded-lg hover:bg-[#DD003F] cursor-pointer hover:text-[#1b1b1b] transition duration-500">Log In</button>
-                        </Link>
-                    </div>
+
+                    </div>) :
+                        (<div >
+                            <Link to={`/login`}>
+                                <button className="font-medium border-[2px] border-[#DD003F] text-[#DD003F] px-3 py-2 rounded-lg hover:bg-[#DD003F] cursor-pointer hover:text-[#1b1b1b] transition duration-500">Log In</button>
+                            </Link>
+                        </div>)}
+
 
 
                 </div>

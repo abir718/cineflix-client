@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaPlay } from "react-icons/fa";
 
 function StrangerThings() {
- const [tvData, setTvData] = useState(null);
+    const [tvData, setTvData] = useState(null);
     const API_KEY = import.meta.env.VITE_API_KEY;
 
     useEffect(() => {
@@ -30,7 +30,13 @@ function StrangerThings() {
                 ></div>
 
                 <div className="relative z-10 flex flex-col lg:flex-row gap-10 p-4 md:p-10 text-white">
-                    <img src={posterImage} alt={tvData?.name} className="w-[200px] md:w-[280px] lg:w-[300px] h-auto rounded-lg shadow-lg" />
+                    {posterImage ? (
+                        <img
+                            src={posterImage}
+                            alt={tvData?.title || "Movie poster"}
+                            className="w-[200px] md:w-[280px] lg:w-[300px] h-auto rounded-lg shadow-lg"
+                        />
+                    ) : null}
                     <div className="flex flex-col justify-center w-full">
                         <h1 className="text-4xl md:text-5xl font-bold">
                             {tvData?.name}
@@ -51,8 +57,10 @@ function StrangerThings() {
                         </div>
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-1">Overview</h2>
-                            <p className="text-gray-400 max-w-[800px]">{tvData?.overview}</p>
-                            {tvData?.created_by?.map(c => (<p className='text-xl font-medium mt-3' key={c.id}>{c.name}</p>))}
+                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">{tvData?.overview}</p>
+                            {tvData?.created_by?.[0] && (
+                                <p className='text-xl font-medium mt-3'>{tvData.created_by[0].name}</p>
+                            )}
                             <p className='text-gray-400'>Creator</p>
                         </div>
                     </div>

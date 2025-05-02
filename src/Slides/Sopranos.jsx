@@ -51,7 +51,7 @@ function Sopranos() {
                         </div>
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-1">Overview</h2>
-                            <p className="text-gray-400 max-w-[800px]">{tvData?.overview}</p>
+                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">{tvData?.overview}</p>
                             {tvData?.created_by?.map(c => (<p className='text-xl font-medium mt-3' key={c.id}>{c.name}</p>))}
                             <p className='text-gray-400'>Creator</p>
                         </div>

@@ -54,9 +54,9 @@ const TvSlider = ({ series = [], title = 'Tv Series', path = "/" }) => {
                     {series.map((item) => (
                         <SwiperSlide key={item.id}>
                             <div className="px-2">
-                                <div className="bg-[#232323] p-3 w-fit rounded-lg group">
+                                <div className="bg-[#232323] p-3 w-fit rounded-lg">
                                     <img
-                                        className="w-60 h-full mx-auto rounded-lg transition duration-300 group-hover:brightness-75"
+                                        className="w-60 h-full mx-auto rounded-lg transition duration-300 hover:brightness-75"
                                         src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                         alt={item.title}
                                     />

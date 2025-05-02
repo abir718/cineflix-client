@@ -26,11 +26,13 @@ function DunePartTwo() {
             <div className="relative mx-auto h-full px-4 rounded-xl overflow-hidden">
                 <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url(${bgImage})` }}></div>
                 <div className="relative z-10 flex flex-col lg:flex-row gap-10 p-4 md:p-10 text-white">
-                    <img
-                        src={posterImage}
-                        alt={movieData?.title}
-                        className="w-[200px] md:w-[280px] lg:w-[300px] h-auto rounded-lg shadow-lg"
-                    />
+                    {posterImage ? (
+                        <img
+                            src={posterImage}
+                            alt={movieData?.title || "Movie poster"}
+                            className="w-[200px] md:w-[280px] lg:w-[300px] h-auto rounded-lg shadow-lg"
+                        />
+                    ) : null}
                     <div className="flex flex-col justify-center w-full">
                         <h1 className="text-4xl md:text-5xl font-bold">
                             {movieData?.title}
@@ -69,7 +71,7 @@ function DunePartTwo() {
                         </div>
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-1">Overview</h2>
-                            <p className="text-gray-400 max-w-[800px]">{movieData?.overview}</p>
+                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">{movieData?.overview}</p>
                             {movieData?.credits?.crew?.filter(c => c.job === "Director").map(director => (
                                 <p className='text-xl font-medium mt-3' key={director.id}>{director.name}</p>
                             ))}
