@@ -1,30 +1,27 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { authContext } from "../AuthProvider";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Header = () => {
-    let { user, logOut } = useContext(authContext)
+    const { user, logOut } = useContext(authContext);
     const [isNavOpen, setIsNavOpen] = useState(false);
 
-    const toggleNav = () => {
-        setIsNavOpen(!isNavOpen);
-    };
+    const toggleNav = () => setIsNavOpen(!isNavOpen);
 
     return (
         <div className="bg-[#1b1b1b] drop-shadow-xl sticky top-0 z-50">
-            <div className=" py-2 flex items-center justify-between px-4 lg:w-[80%] mx-auto">
-                <button className="text-white sm:hidden" onClick={toggleNav}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-
-                <div className="flex items-center sm:flex-col">
-                    <img className="w-[80px] lg:flex hidden" src="/images/logo.png" alt="" />
-                    <p className="text-[#DD003F] lg:flex hidden">CineFlix</p>
+            <div className="py-2 flex items-center justify-between px-4 lg:w-[80%] mx-auto">
+                <div className="flex items-center gap-4">
+                    <button className="text-[#DD003F] sm:hidden" onClick={toggleNav}>
+                        <GiHamburgerMenu className="size-5" />
+                    </button>
+                    <img className="w-[70px]" src="/images/logo.png" alt="logo" />
                 </div>
 
-                <div className={`flex flex-col md:flex-row md:items-center gap-6 md:gap-8 ${isNavOpen ? "flex" : "hidden"} md:flex`}>
+
+
+                <div className="hidden sm:flex gap-6 items-center">
                     <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/">Home</NavLink>
                     <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/tv-shows">TV Shows</NavLink>
                     <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/browse-movies">Browse Movies</NavLink>
@@ -32,7 +29,7 @@ const Header = () => {
                 </div>
 
                 <div>
-                    {user && user.email ? (<div >
+                    {user?.email ? (
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="avatar">
                                 <div className="w-12 rounded-lg cursor-pointer">
@@ -44,19 +41,30 @@ const Header = () => {
                                 <li onClick={logOut} className="hover:bg-black/20"><a>LogOut</a></li>
                             </ul>
                         </div>
-
-
-                    </div>) :
-                        (<div >
-                            <Link to={`/login`}>
-                                <button className="font-medium border-[2px] border-[#DD003F] text-[#DD003F] px-3 py-2 rounded-lg hover:bg-[#DD003F] cursor-pointer hover:text-[#1b1b1b] transition duration-500">Log In</button>
-                            </Link>
-                        </div>)}
-
-
-
+                    ) : (
+                        <Link to="/login">
+                            <button className="font-medium border-[2px] border-[#DD003F] text-[#DD003F] px-3 py-2 rounded-lg hover:bg-[#DD003F] hover:text-[#1b1b1b] transition duration-500">
+                                Log In
+                            </button>
+                        </Link>
+                    )}
                 </div>
             </div>
+
+
+            <div className={`fixed top-0 left-0 h-screen w-64 bg-[#1b1b1b] z-50 transform ${isNavOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 sm:hidden`}>
+                <div className="p-6 flex flex-col gap-6">
+                    <button onClick={toggleNav} className="text-[#DD003F] self-end ">
+                        ✕
+                    </button>
+                    <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/">Home</NavLink>
+                    <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/tv-shows">TV Shows</NavLink>
+                    <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/browse-movies">Browse Movies</NavLink>
+                    <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/favourites">My Favourites</NavLink>
+                </div>
+            </div>
+
+
             <div className="h-[1px] w-full bg-[#DD003F]"></div>
         </div>
     );
