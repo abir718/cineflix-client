@@ -6,25 +6,22 @@ function AllTrendingMovies() {
   const [currentPage, setCurrentPage] = useState(1);
   const API_KEY = import.meta.env.VITE_API_KEY;
 
-
   useEffect(() => {
     const today = new Date().toISOString().split('T')[0];
     const fetchMovies = async () => {
       const requests = [];
       for (let i = 1; i <= 35; i++) {
         requests.push(
-          fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${i}&api_key=${API_KEY}`)
+          fetch(`https://api.themoviedb.org/3/discover/movie?language=en-US&page=${i}&sort_by=popularity.desc&release_date.gte=${today}&with_release_type=3|2&api_key=${API_KEY}`)
             .then(res => res.json())
         );
       }
       const pages = await Promise.all(requests);
       const combined = pages.flatMap(page => page.results);
-      const filteredMovies = combined.filter(movie => movie.release_date > today);
-      setAllMovies(filteredMovies);
+      setAllMovies(combined);
     };
     fetchMovies();
   }, [API_KEY]);
-
 
   const moviesPerPage = 35;
   const totalPages = Math.ceil(allMovies.length / moviesPerPage);
@@ -104,9 +101,7 @@ function AllTrendingMovies() {
           Next
         </button>
       </div>
-
-
-    </div >
+    </div>
   );
 }
 
