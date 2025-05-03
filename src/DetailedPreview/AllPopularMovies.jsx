@@ -9,7 +9,7 @@ function AllPopularMovies() {
     useEffect(() => {
         const fetchMovies = async () => {
             const requests = [];
-            for (let i = 1; i <= 35; i++) {
+            for (let i = 1; i <= 30; i++) {
                 requests.push(
                     fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${i}&api_key=${API_KEY}`)
                         .then(res => res.json())
@@ -22,7 +22,7 @@ function AllPopularMovies() {
         fetchMovies();
     }, [API_KEY]);
 
-    const moviesPerPage = 35;
+    const moviesPerPage = 30;
     const totalPages = Math.ceil(allMovies.length / moviesPerPage);
     const startIndex = (currentPage - 1) * moviesPerPage;
     const paginatedMovies = allMovies.slice(startIndex, startIndex + moviesPerPage);

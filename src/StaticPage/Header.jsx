@@ -10,7 +10,7 @@ const Header = () => {
     const toggleNav = () => setIsNavOpen(!isNavOpen);
 
     return (
-        <div className="bg-[#1b1b1b] drop-shadow-xl sticky top-0 z-50">
+        <div className="bg-[#1b1b1b] drop-shadow-xl pt-2 sticky top-0 z-50">
             <div className="py-2 flex items-center justify-between px-4 lg:w-[80%] mx-auto">
                 <div className="flex items-center gap-4">
                     <button className="text-[#DD003F] sm:hidden" onClick={toggleNav}>
@@ -24,7 +24,7 @@ const Header = () => {
                 <div className="hidden sm:flex gap-6 items-center">
                     <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/">Home</NavLink>
                     <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/tv-shows">TV Shows</NavLink>
-                    <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/browse-movies">Browse Movies</NavLink>
+                    <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/browse">Browse</NavLink>
                     <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/favourites">My Favourites</NavLink>
                 </div>
 
@@ -59,13 +59,13 @@ const Header = () => {
                     </button>
                     <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/">Home</NavLink>
                     <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/tv-shows">TV Shows</NavLink>
-                    <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/browse-movies">Browse Movies</NavLink>
+                    <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/browse">Browse</NavLink>
                     <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/favourites">My Favourites</NavLink>
                 </div>
             </div>
 
 
-            <div className="h-[1px] w-full bg-[#DD003F]"></div>
+            <div className="h-[1px] w-full bg-[#DD003F] mt-2"></div>
         </div>
     );
 };

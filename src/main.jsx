@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Home from './Home.jsx';
 import HomeContent from './HomePage/HomeContent.jsx';
 import MovieDetails from './DetailedPreview/MovieDetails.jsx';
@@ -19,6 +19,8 @@ import AllPopularTv from './TvDetails/AllPopularTv.jsx';
 import AllAiringThisWeek from './TvDetails/AllAiringThisWeek.jsx';
 import TvDetails from './TvDetails/TvDetails.jsx';
 import AuthProvider from './AuthProvider.jsx';
+import Browse from './Browse/Browse.jsx';
+import BrowseGenre from './Browse/BrowseGenre.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
-    children:[
+    children: [
       {
         path: "/",
         element: <HomeContent></HomeContent>
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/tv-shows",
         element: <TvContent></TvContent>
-      }, 
+      },
       {
         path: "/movie-details/:id",
         element: <MovieDetails></MovieDetails>,
@@ -47,23 +49,35 @@ const router = createBrowserRouter([
           const credits = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${API_KEY}`)
           const similar = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=${API_KEY}`)
           const recommendations = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/recommendations?api_key=${API_KEY}`)
-          const loadDetails = await details.json(); 
-          const loadImages = await images.json(); 
-          const loadVideos = await videos.json(); 
-          const loadCredits = await credits.json(); 
-          const loadsimilar = await similar.json(); 
-          const loadRecommendations = await recommendations.json(); 
-          return { loadDetails , loadImages , loadVideos , loadCredits , loadsimilar , loadRecommendations };
+          const loadDetails = await details.json();
+          const loadImages = await images.json();
+          const loadVideos = await videos.json();
+          const loadCredits = await credits.json();
+          const loadsimilar = await similar.json();
+          const loadRecommendations = await recommendations.json();
+          return { loadDetails, loadImages, loadVideos, loadCredits, loadsimilar, loadRecommendations };
         },
-        
+
       },
       {
         path: "/login",
         element: <Login></Login>
-      },      
+      },
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/browse",
+        element: <Browse></Browse>
+      },
+      {
+        path: "/browse/:id",
+        element: <BrowseGenre></BrowseGenre>,
+        loader: ({ params }) =>
+          fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${params.id}&page=1`)
+            .then(res => res.json())
+            .then(data => data.results)
       },
       {
         path: "/top-movies",
@@ -112,15 +126,15 @@ const router = createBrowserRouter([
           const credits = await fetch(`https://api.themoviedb.org/3/tv/${params.id}/credits?api_key=${API_KEY}`)
           const similar = await fetch(`https://api.themoviedb.org/3/tv/${params.id}/similar?api_key=${API_KEY}`)
           const recommendations = await fetch(`https://api.themoviedb.org/3/tv/${params.id}/recommendations?api_key=${API_KEY}`)
-          const loadDetails = await details.json(); 
-          const loadImages = await images.json(); 
-          const loadVideos = await videos.json(); 
-          const loadCredits = await credits.json(); 
-          const loadsimilar = await similar.json(); 
-          const loadRecommendations = await recommendations.json(); 
-          return { loadDetails , loadImages , loadVideos , loadCredits , loadsimilar , loadRecommendations };
+          const loadDetails = await details.json();
+          const loadImages = await images.json();
+          const loadVideos = await videos.json();
+          const loadCredits = await credits.json();
+          const loadsimilar = await similar.json();
+          const loadRecommendations = await recommendations.json();
+          return { loadDetails, loadImages, loadVideos, loadCredits, loadsimilar, loadRecommendations };
         },
-        
+
       },
     ]
   },
@@ -129,7 +143,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,
 )
