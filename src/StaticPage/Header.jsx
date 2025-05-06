@@ -25,7 +25,7 @@ const Header = () => {
                     <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/">Home</NavLink>
                     <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/tv-shows">TV Shows</NavLink>
                     <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/browse">Browse</NavLink>
-                    <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/favourites">My Favourites</NavLink>
+                    <NavLink className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-500"}`} to="/news">News</NavLink>
                 </div>
 
                 <div>
@@ -60,7 +60,7 @@ const Header = () => {
                     <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/">Home</NavLink>
                     <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/tv-shows">TV Shows</NavLink>
                     <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/browse">Browse</NavLink>
-                    <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/favourites">My Favourites</NavLink>
+                    <NavLink onClick={toggleNav} className={({ isActive }) => `font-medium hover:text-[#DD003F] transition duration-300 ${isActive ? "text-[#DD003F]" : "text-gray-400"}`} to="/news">News</NavLink>
                 </div>
             </div>
 

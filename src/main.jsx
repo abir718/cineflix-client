@@ -21,6 +21,7 @@ import TvDetails from './TvDetails/TvDetails.jsx';
 import AuthProvider from './AuthProvider.jsx';
 import Browse from './Browse/Browse.jsx';
 import BrowseGenre from './Browse/BrowseGenre.jsx';
+import News from './News.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },      
+      {
+        path: "/news",
+        element: <News></News>
       },
       {
         path: "/browse",
@@ -73,11 +78,22 @@ const router = createBrowserRouter([
       },
       {
         path: "/browse/:id",
-        element: <BrowseGenre></BrowseGenre>,
+        element: <BrowseGenre />,
         loader: ({ params }) =>
           fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${params.id}&page=1`)
-            .then(res => res.json())
-            .then(data => data.results)
+            .then(res1 => res1.json())
+            .then(data1 => {
+              return fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${params.id}&page=2`)
+                .then(res2 => res2.json())
+                .then(data2 => {
+                  return fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${params.id}&page=3`)
+                    .then(res3 => res3.json())
+                    .then(data3 => {
+                      const combined = data1.results.concat(data2.results, data3.results);
+                      return combined;
+                    });
+                });
+            })
       },
       {
         path: "/top-movies",

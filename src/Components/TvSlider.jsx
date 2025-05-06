@@ -54,22 +54,18 @@ const TvSlider = ({ series = [], title = 'Tv Series', path = "/" }) => {
                     {series.map((item) => (
                         <SwiperSlide key={item.id}>
                             <div className="px-2">
-                                <div className="bg-[#232323] p-3 w-fit rounded-lg">
-                                    <img
-                                        className="w-60 h-full mx-auto rounded-lg transition duration-300 hover:brightness-75"
-                                        src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                        alt={item.title}
-                                    />
+                                <div className="bg-[#262626] p-3 w-fit rounded-lg">
+                                    <img className="w-60 h-full mx-auto rounded-lg transition duration-300 hover:brightness-75" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}alt={item.title}/>
                                     <div className="flex justify-between mt-2">
                                         <Link to={`/tv-details/${item.id}`}>
-                                            <h1 className="text-white w-44 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">
-                                                {item.name}
+                                            <h1 title={`${item.name}`} className="text-white w-44 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">
+                                            {item.name.length > 36 ? item.name.slice(0, 36) + '...' : item.name}
                                             </h1>
                                         </Link>
                                         <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(item.vote_average)}/10</p>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <button className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#232323] transition duration-300 font-medium">
+                                        <button className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#262626] transition duration-300 font-medium">
                                             + Watchlist
                                         </button>
                                         <div className="hover:bg-[#363636] p-3 rounded-full transition duration-300">

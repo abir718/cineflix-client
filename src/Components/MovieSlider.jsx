@@ -7,6 +7,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 const MovieSlider = ({ movies = [], title = 'Movies', path = "/" }) => {
+
+    let addToWatchlist = (id)=>{
+        
+    }
+
+
     return (
         <div className="w-[92%] mx-auto mt-8">
             <div className="flex gap-3 items-center">
@@ -55,7 +61,7 @@ const MovieSlider = ({ movies = [], title = 'Movies', path = "/" }) => {
                     {movies.map((movie) => (
                         <SwiperSlide key={movie.id}>
                             <div className="px-1">
-                                <div className="bg-[#232323] p-3 w-fit rounded-lg group">
+                                <div className="bg-[#262626] p-3 w-fit rounded-lg group">
                                     <img
                                         className="w-60 mx-auto rounded-lg transition duration-300 group-hover:brightness-75"
                                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -70,7 +76,7 @@ const MovieSlider = ({ movies = [], title = 'Movies', path = "/" }) => {
                                         <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(movie.vote_average)}/10</p>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <button className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#232323] transition duration-300 font-medium">
+                                        <button onClick={()=> addToWatchlist(movie.id)} className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#262626] transition duration-300 font-medium">
                                             + Watchlist
                                         </button>
                                         <div className="hover:bg-[#363636] p-3 rounded-full transition duration-300">

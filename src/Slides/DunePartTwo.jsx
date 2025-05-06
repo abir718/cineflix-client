@@ -71,10 +71,8 @@ function DunePartTwo() {
                         </div>
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-1">Overview</h2>
-                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">{movieData?.overview}</p>
-                            {movieData?.credits?.crew?.filter(c => c.job === "Director").map(director => (
-                                <p className='text-xl font-medium mt-3' key={director.id}>{director.name}</p>
-                            ))}
+                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">{movieData?.overview}</p>                     
+                                <p className='text-xl font-medium mt-3' >Denis Villeneuve</p>
                             <p className='text-gray-400'>Director</p>
                         </div>
                     </div>

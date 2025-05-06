@@ -20,15 +20,23 @@ const movieGenres = [
   { id: 10770, name: "TV Movie", image: "images/tvmovie.png" },
   { id: 53, name: "Thriller", image: "images/thriller.png" },
   { id: 10752, name: "War", image: "images/war.png" },
-  { id: 37, name: "Western", image: "images/western.png" }
+  { id: 37, name: "Western", image: "images/western.png" },
+  { id: 10762, name: "Kids", image: "images/kids.png" },
+  { id: 10763, name: "News", image: "images/news.png" },
+  { id: 10764, name: "Reality", image: "images/reality.png" },
+  { id: 10765, name: "Sci-Fi & Fantasy", image: "images/scifi.png" },
+  { id: 10767, name: "Talk", image: "images/talk.png" },
+  { id: 10768, name: "War & Politics", image: "images/politics.png" }
 ];
+
+
 
 function Browse() {
   return (
     <div className='w-[95%] mx-auto py-6'>
       <div className="flex gap-3 items-center">
         <div className="w-[8px] h-[38px] bg-[#DD003F]"></div>
-        <p className="text-3xl font-medium text-white">Browse Movies by Genre</p>
+        <p className="text-3xl font-medium text-white">Browse Movies & TV Shows by Genre</p>
       </div>
 
       <div className="flex flex-wrap gap-4 justify-center p-4">
