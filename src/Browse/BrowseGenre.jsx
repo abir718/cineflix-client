@@ -1,11 +1,40 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
+import { authContext } from '../AuthProvider';
+import toast from 'react-hot-toast';
 
 function BrowseGenre() {
 
+    const { user } = useContext(authContext);
+
+    let addToWatchlist = (movie) => {
+        const MovieData = {
+            image: movie.poster_path,
+            title: movie.title || movie.name,
+            ratings: Math.round(movie.vote_average),
+            user: user.email
+        };
+        fetch("http://localhost:5000/watchlist", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(MovieData),
+        })
+        toast('Successfully added to your watchlist', {
+            style: {
+                background: '#212121',
+                color: '#DD003F',
+                fontSize: '1.125rem',
+                fontWeight: 500
+            },
+        });
+
+    }
+
     const allData = useLoaderData();
     console.log(allData)
-    
+
     return (
         <div>
             <div className="flex items-center justify-center">
@@ -20,13 +49,13 @@ function BrowseGenre() {
                             <div className="flex justify-between mt-2">
                                 <Link to={`/movie-details/${movie.id}`}>
                                     <h1 className="text-white w-40 h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer" title={movie.title}>
-                                        {movie.title.length > 36 ? movie.title.slice(0, 36) + '...' : movie.title}
+                                        {(movie.title || movie.name).length > 36? (movie.title || movie.name).slice(0, 36) + '...': (movie.title || movie.name)}
                                     </h1>
                                 </Link>
                                 <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(movie.vote_average)}/10</p>
                             </div>
                             <div className="flex items-center justify-between">
-                                <button className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#262626] transition duration-300 font-medium">
+                                <button onClick={() => addToWatchlist(movie)} className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#262626] transition duration-300 font-medium">
                                     + Watchlist
                                 </button>
                                 <div className="hover:bg-[#363636] p-3 rounded-full transition duration-300">

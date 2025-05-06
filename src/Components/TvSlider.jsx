@@ -1,12 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import toast from 'daisyui/components/toast';
+import { authContext } from '../AuthProvider';
 
 const TvSlider = ({ series = [], title = 'Tv Series', path = "/" }) => {
+
+        const { user } = useContext(authContext);
+        
+        let addToWatchlist = (movie)=>{   
+            const MovieData = {
+                image: movie.poster_path,
+                title: movie.title || movie.name,
+                ratings: Math.round(movie.vote_average),
+                user: user.email
+            };
+            fetch("http://localhost:5000/watchlist", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(MovieData),
+            })   
+            toast('Successfully added to your watchlist', {
+                style: {
+                  background: '#212121',
+                  color: '#DD003F',
+                  fontSize: '1.125rem',
+                  fontWeight: 500      
+                },
+              });
+                    
+        }
+
+
     return (
         <div className="w-[95%] mx-auto mt-8">
             <div className="flex gap-3 items-center">
@@ -65,7 +96,7 @@ const TvSlider = ({ series = [], title = 'Tv Series', path = "/" }) => {
                                         <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(item.vote_average)}/10</p>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <button className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#262626] transition duration-300 font-medium">
+                                        <button onClick={()=> addToWatchlist(item)} className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#262626] transition duration-300 font-medium">
                                             + Watchlist
                                         </button>
                                         <div className="hover:bg-[#363636] p-3 rounded-full transition duration-300">
