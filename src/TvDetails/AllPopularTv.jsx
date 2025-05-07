@@ -24,32 +24,64 @@ function AllPopularTv() {
     fetchMovies();
   }, [API_KEY]);
 
-        const { user } = useContext(authContext);
-    
-        let addToWatchlist = (movie) => {
-            const MovieData = {
-                image: movie.poster_path,
-                title: movie.title || movie.name,
-                ratings: Math.round(movie.vote_average),
-                user: user.email
-            };
-            fetch("http://localhost:5000/watchlist", {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(MovieData),
-            })
-            toast('Successfully added to your watchlist', {
-                style: {
-                    background: '#212121',
-                    color: '#DD003F',
-                    fontSize: '1.125rem',
-                    fontWeight: 500
-                },
-            });
-    
-        }
+  const { user, watchlist, setWatchlist } = useContext(authContext);
+
+  let addToWatchlist = (movie) => {
+
+    if (!user?.email) {
+      toast('You need to login first!', {
+        style: {
+          background: '#212121',
+          color: '#DD003F',
+          fontSize: '1.125rem',
+          fontWeight: 500
+        },
+      });
+      return;
+    }
+
+    const movieTitle = movie.title || movie.name;
+
+    const alreadyExists = watchlist.some(item =>
+      item.title === movieTitle && item.user === user.email
+    );
+
+    if (alreadyExists) {
+      toast('Already in your watchlist!', {
+        style: {
+          background: '#212121',
+          color: '#DD003F',
+          fontSize: '1.125rem',
+          fontWeight: 500
+        },
+      });
+      return;
+    }
+
+    const MovieData = {
+      image: movie.poster_path,
+      title: movieTitle,
+      ratings: Math.round(movie.vote_average),
+      user: user.email
+    };
+
+    fetch("http://localhost:5000/watchlist", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(MovieData),
+    });
+    setWatchlist(prevWatchlist => [...prevWatchlist, MovieData]);
+    toast('Successfully added to your watchlist', {
+      style: {
+        background: '#212121',
+        color: '#DD003F',
+        fontSize: '1.125rem',
+        fontWeight: 500
+      },
+    });
+  };
 
   const showsPerPage = 36;
   const totalPages = Math.ceil(allPopular.length / showsPerPage);

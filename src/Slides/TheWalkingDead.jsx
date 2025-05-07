@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaPlay } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function TheWalkingDead() {
     const [tvData, setTvData] = useState(null);
@@ -50,7 +51,11 @@ function TheWalkingDead() {
                                 aria-valuenow={Math.round(tvData?.vote_average * 10)}>{Math.round(tvData?.vote_average * 10)}%
                             </div>
 
-                            <button className="border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2  bg-[#DD003F] text-[#212121] hover:text-[#DD003F] hover:bg-transparent transition duration-500 cursor-pointer">+ Watchlist</button>
+                            <Link to={`/tv-details/${tvData?.id}`}>
+                                <button className="border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2 bg-[#DD003F] text-[#212121] hover:text-[#DD003F] hover:bg-transparent transition duration-500 cursor-pointer">
+                                    Details
+                                </button>
+                            </Link>
                             {trailerKey && (
                                 <a href={`https://www.youtube.com/watch?v=${trailerKey}`} className="text-[#DD003F] border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2  hover:bg-[#DD003F] hover:text-[#212121] transition duration-500"><FaPlay />Play Trailer</a>
                             )}

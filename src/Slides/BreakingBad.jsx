@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaPlay } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function BreakingBad() {
     const [tvData, setTvData] = useState(null);
@@ -11,13 +12,9 @@ function BreakingBad() {
             .then(data => setTvData(data));
     }, [API_KEY]);
 
-    const bgImage = tvData?.backdrop_path
-        ? `https://image.tmdb.org/t/p/original${tvData.backdrop_path}`
-        : '';
+    const bgImage = tvData?.backdrop_path ? `https://image.tmdb.org/t/p/original${tvData.backdrop_path}` : '';
 
-    const posterImage = tvData?.poster_path
-        ? `https://image.tmdb.org/t/p/w500${tvData.poster_path}`
-        : '';
+    const posterImage = tvData?.poster_path ? `https://image.tmdb.org/t/p/w500${tvData.poster_path}` : '';
 
     const trailerKey = tvData?.videos?.results?.find(v => v.type === "Trailer" && v.site === "YouTube")?.key;
 
@@ -51,20 +48,16 @@ function BreakingBad() {
                             >
                                 {Math.round(tvData?.vote_average * 10)}%
                             </div>
-
-                            <button className="border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2 bg-[#DD003F] text-[#212121] hover:text-[#DD003F] hover:bg-transparent transition duration-500 cursor-pointer">
-                                + Watchlist
-                            </button>
+                            <Link to={`/tv-details/${tvData?.id}`}>
+                                <button className="border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2 bg-[#DD003F] text-[#212121] hover:text-[#DD003F] hover:bg-transparent transition duration-500 cursor-pointer">
+                                    Details
+                                </button>
+                            </Link>
 
                             {trailerKey && (
-                                <a
-                                    href={`https://www.youtube.com/watch?v=${trailerKey}`}
+                                <a href={`https://www.youtube.com/watch?v=${trailerKey}`}
                                     className="text-[#DD003F] border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2 hover:bg-[#DD003F] hover:text-[#212121] transition duration-500"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <FaPlay /> Play Trailer
-                                </a>
+                                    target="_blank" rel="noopener noreferrer"><FaPlay /> Play Trailer</a>
                             )}
                         </div>
                         <div className="mt-4">

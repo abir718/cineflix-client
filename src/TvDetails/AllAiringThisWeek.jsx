@@ -24,7 +24,7 @@ function AllAiringThisWeek() {
     fetchMovies();
   }, [API_KEY]);
 
-      const { user } = useContext(authContext);
+      const { user, watchlist , setWatchlist } = useContext(authContext);
   
       let addToWatchlist = (movie) => {
           const MovieData = {

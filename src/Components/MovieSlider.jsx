@@ -9,33 +9,65 @@ import { authContext } from '../AuthProvider';
 import toast from 'react-hot-toast';
 
 const MovieSlider = ({ movies = [], title = 'Movies', path = "/" }) => {
-    
-    const { user } = useContext(authContext);
-    
-    let addToWatchlist = (movie)=>{
+
+    const { user, watchlist , setWatchlist } = useContext(authContext);
+
+    let addToWatchlist = (movie) => {
+
+        if (!user?.email) {
+            toast('You need to login first!', {
+                style: {
+                    background: '#212121',
+                    color: '#DD003F',
+                    fontSize: '1.125rem',
+                    fontWeight: 500
+                },
+            });
+            return;
+        }
+
+        const movieTitle = movie.title || movie.name;
+
+        const alreadyExists = watchlist.some(item =>
+            item.title === movieTitle && item.user === user.email
+        );
+
+        if (alreadyExists) {
+            toast('Already in your watchlist!', {
+                style: {
+                    background: '#212121',
+                    color: '#DD003F',
+                    fontSize: '1.125rem',
+                    fontWeight: 500
+                },
+            });
+            return;
+        }
+
         const MovieData = {
             image: movie.poster_path,
-            title: movie.title || movie.name,
+            title: movieTitle,
             ratings: Math.round(movie.vote_average),
             user: user.email
         };
+
         fetch("http://localhost:5000/watchlist", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
             body: JSON.stringify(MovieData),
-        })   
+        });
+        setWatchlist(prevWatchlist => [...prevWatchlist, MovieData]);
         toast('Successfully added to your watchlist', {
             style: {
-              background: '#212121',
-              color: '#DD003F',
-              fontSize: '1.125rem',
-              fontWeight: 500      
+                background: '#212121',
+                color: '#DD003F',
+                fontSize: '1.125rem',
+                fontWeight: 500
             },
-          });
-                
-    }
+        });
+    };
 
 
     return (
@@ -101,7 +133,7 @@ const MovieSlider = ({ movies = [], title = 'Movies', path = "/" }) => {
                                         <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(movie.vote_average)}/10</p>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <button onClick={()=> addToWatchlist(movie)} className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#262626] transition duration-300 font-medium">
+                                        <button onClick={() => addToWatchlist(movie)} className="py-1 px-3 border-[2px] border-[#DD003F] text-[#DD003F] rounded-full cursor-pointer hover:bg-[#DD003F] hover:text-[#262626] transition duration-300 font-medium">
                                             + Watchlist
                                         </button>
                                         <div className="hover:bg-[#363636] p-3 rounded-full transition duration-300">

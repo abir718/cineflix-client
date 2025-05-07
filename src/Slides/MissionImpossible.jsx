@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaPlay } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function MissionImpossible() {
     const [movieData, setMovieData] = useState(null);
@@ -45,18 +46,20 @@ function MissionImpossible() {
                             <div
                                 className="radial-progress text-[#DD003F] border-2 border-[#212121] bg-[#212121]"
                                 style={{
-                                    "--value": Math.round(movieData?.vote_average * 10),
+                                    "--value": Math.round(8 * 10),
                                     "--size": "4rem"
                                 }}
                                 role="progressbar"
-                                aria-valuenow={Math.round(movieData?.vote_average * 10)}
+                                aria-valuenow={Math.round(8 * 10)}
                             >
-                                {Math.round(movieData?.vote_average * 10)}%
+                                {Math.round(8 * 10)}%
                             </div>
 
-                            <button className="border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2 bg-[#DD003F] text-[#212121] hover:text-[#DD003F] hover:bg-transparent transition duration-500 cursor-pointer">
-                                + Watchlist
-                            </button>
+                            <Link to={`/movie-details/${movieData?.id}`}>
+                                <button className="border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2 bg-[#DD003F] text-[#212121] hover:text-[#DD003F] hover:bg-transparent transition duration-500 cursor-pointer">
+                                    Details
+                                </button>
+                            </Link>
 
                             {trailerKey && (
                                 <a

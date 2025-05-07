@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaPlay } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function Oppenheimer() {
     const [movieData, setMovieData] = useState(null);
@@ -54,9 +55,11 @@ function Oppenheimer() {
                                 {Math.round(movieData?.vote_average * 10)}%
                             </div>
 
-                            <button className="border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2 bg-[#DD003F] text-[#212121] hover:text-[#DD003F] hover:bg-transparent transition duration-500 cursor-pointer">
-                                + Watchlist
-                            </button>
+                            <Link to={`/movie-details/${movieData?.id}`}>
+                                <button className="border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2 bg-[#DD003F] text-[#212121] hover:text-[#DD003F] hover:bg-transparent transition duration-500 cursor-pointer">
+                                    Details
+                                </button>
+                            </Link>
 
                             {trailerKey && (
                                 <a
