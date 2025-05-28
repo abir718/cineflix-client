@@ -39,9 +39,9 @@ function TheWalkingDead() {
                         />
                     ) : null}
                     <div className="flex flex-col justify-center w-full">
-                        <h1 className="text-4xl md:text-5xl font-bold">
+                        <h1 className="text-2xl md:text-5xl font-bold">
                             {tvData?.name}
-                            <span className="text-gray-400 text-2xl md:text-3xl"> ({tvData?.first_air_date?.slice(0, 4)})</span>
+                            <span className="text-gray-400 hidden md:block md:text-3xl"> ({tvData?.first_air_date?.slice(0, 4)})</span>
                         </h1>
                         <p className="text-sm border border-white rounded px-2 w-fit my-2">
                             {tvData?.adult ? 'R-Rated' : 'TV-MA'} • {tvData?.genres?.map(g => g.name).join('  ')}
@@ -56,9 +56,9 @@ function TheWalkingDead() {
                                     Details
                                 </button>
                             </Link>
-                            {trailerKey && (
-                                <a href={`https://www.youtube.com/watch?v=${trailerKey}`} className="text-[#DD003F] border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2  hover:bg-[#DD003F] hover:text-[#212121] transition duration-500"><FaPlay />Play Trailer</a>
-                            )}
+                            <a href={`https://www.youtube.com/watch?v=`}
+                                className="text-[#DD003F] border-[2px] border-[#DD003F] flex items-center gap-2 rounded-full px-4 py-2 hover:bg-[#DD003F] hover:text-[#212121] transition duration-500"
+                                target="_blank" rel="noopener noreferrer"><FaPlay /> Play Trailer</a>
                         </div>
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-1">Overview</h2>

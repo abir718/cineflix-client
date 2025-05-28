@@ -9,10 +9,18 @@ const AuthProvider = ({ children }) => {
     let [user, setUser] = useState(null)
     let [loader, setLoader] = useState(true)
     let [watchlist, setWatchlist] = useState([])
-    let newUser = (name, email, password, photo) => {
-        return createUserWithEmailAndPassword(auth, name, email, password, photo)
 
-    }
+
+    let newUser = (name, email, password, photo) => {
+        return createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+          return updateProfile(userCredential.user, {
+            displayName: name,
+            photoURL: photo
+          });
+        });
+      };
+
+    
 
     let login = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
@@ -41,7 +49,8 @@ const AuthProvider = ({ children }) => {
 
 
     let authInfo = {user,setUser,newUser,logOut,login,loader,changeProfile,watchlist,setWatchlist}
-      
+
+
 
 
     useEffect(() => {

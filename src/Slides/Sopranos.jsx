@@ -33,9 +33,9 @@ function Sopranos() {
                 <div className="relative z-10 flex flex-col lg:flex-row gap-10 p-4 md:p-10 text-white">
                     <img src={posterImage} alt={tvData?.name} className="w-[200px] md:w-[280px] lg:w-[300px] h-auto rounded-lg shadow-lg" />
                     <div className="flex flex-col justify-center w-full">
-                        <h1 className="text-4xl md:text-5xl font-bold">
+                        <h1 className="text-2xl md:text-5xl font-bold">
                             {tvData?.name}
-                            <span className="text-gray-400 text-2xl md:text-3xl"> ({tvData?.first_air_date?.slice(0, 4)})</span>
+                            <span className="text-gray-400 text-lg md:text-3xl"> ({tvData?.first_air_date?.slice(0, 4)})</span>
                         </h1>
                         <p className="text-sm border border-white rounded px-2 w-fit my-2">
                             {tvData?.adult ? 'R-Rated' : 'TV-MA'} • {tvData?.genres?.map(g => g.name).join('  ')}

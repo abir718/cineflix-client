@@ -35,9 +35,9 @@ function Oppenheimer() {
                         />
                     ) : null}
                     <div className="flex flex-col justify-center w-full">
-                        <h1 className="text-4xl md:text-5xl font-bold">
+                        <h1 className="text-2xl md:text-5xl font-bold">
                             {movieData?.title}
-                            <span className="text-gray-400 text-2xl md:text-3xl"> ({movieData?.release_date?.slice(0, 4)})</span>
+                            <span className="text-gray-400 text-lg md:text-3xl"> ({movieData?.release_date?.slice(0, 4)})</span>
                         </h1>
                         <p className="text-sm border border-white rounded px-2 w-fit my-2">
                             {movieData?.adult ? 'R-Rated' : 'PG-13'} • {movieData?.genres?.map(g => g.name).join(', ')}
@@ -74,7 +74,7 @@ function Oppenheimer() {
                         </div>
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-1">Overview</h2>
-                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">{movieData?.overview}</p>
+                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">J. Robert Oppenheimer and his team race to harness the power of the atom, leading the top-secret Manhattan Project in a desperate bid to end World War II. As the stakes rise and the bomb nears completion, Oppenheimer is haunted by the consequences of his creation — with political forces and personal demons closing in. Joined by brilliant minds and burdened with a decision that could alter humanity's future, Oppenheimer faces a ticking clock to shape the course of history forever.</p>
                             {movieData?.credits?.crew?.filter(c => c.job === "Director").map(director => (
                                 <p className='text-xl font-medium mt-3' key={director.id}>{director.name}</p>
                             ))}

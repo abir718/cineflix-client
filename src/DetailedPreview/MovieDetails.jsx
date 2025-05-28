@@ -24,10 +24,14 @@ function MovieDetails() {
                     <p className='text-gray-400 mb-2'>Duration {hour}h {min}m</p>
                     <div className='flex gap-2'>
                         <img className='w-80 rounded-lg hover:brightness-75 transition duration-300' src={`https://image.tmdb.org/t/p/w1280${loadDetails.poster_path}`} alt="" />
-                        <iframe className='rounded-lg hover:brightness-75 transition duration-300 lg:block hidden' width="1000px"
-                            src={`https://www.youtube.com/embed/${loadVideos.results[0].key}`}
-                            title="YouTube video player">
-                        </iframe>
+                        {loadVideos.results.length > 0 && (
+                            <iframe
+                                className='rounded-lg hover:brightness-75 transition duration-300 lg:block hidden'
+                                width="1000px"
+                                src={`https://www.youtube.com/embed/${loadVideos.results[0].key}`}
+                                title="YouTube video player"
+                            ></iframe>
+                        )}
                     </div>
                     <div className='flex gap-2 mt-4'>
                         {loadDetails.genres.map((gen) => (
