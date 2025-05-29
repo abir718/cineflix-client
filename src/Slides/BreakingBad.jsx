@@ -62,7 +62,7 @@ function BreakingBad() {
                         </div>
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-1">Overview</h2>
-                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">{tvData?.overview}</p>
+                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">A high school chemistry teacher, Walter White, turns to cooking meth after a cancer diagnosis, partnering with former student Jesse Pinkman. As he descends deeper into the criminal underworld, he transforms into a ruthless drug kingpin, risking everything—family, morality, and life itself—in a gripping tale of ambition, desperation, and the corrupting power of survival.</p>
                             {tvData?.created_by?.map(c => (
                                 <p className='text-xl font-medium mt-3' key={c.id}>{c.name}</p>
                             ))}

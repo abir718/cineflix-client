@@ -121,8 +121,8 @@ const TvSlider = ({ series = [], title = 'Tv Series', path = "/" }) => {
                                     <img className="w-60 h-full mx-auto rounded-lg transition duration-300 hover:brightness-75" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}alt={item.title}/>
                                     <div className="flex justify-between mt-2">
                                         <Link to={`/tv-details/${item.id}`}>
-                                            <h1 title={`${item.name}`} className="text-white w-44 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">
-                                            {item.name.length > 36 ? item.name.slice(0, 36) + '...' : item.name}
+                                            <h1 title={`${item.name}`} className="text-white w-42 text-lg h-14 hover:text-[#DD003F] transition duration-300 cursor-pointer">
+                                            {item.name.length > 32 ? item.name.slice(0, 32) + '...' : item.name}
                                             </h1>
                                         </Link>
                                         <p className="text-sm font-medium text-gray-400 mt-1">⭐ {Math.round(item.vote_average)}/10</p>

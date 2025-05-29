@@ -20,8 +20,6 @@ function TheWalkingDead() {
         ? `https://image.tmdb.org/t/p/w500${tvData.poster_path}`
         : '';
 
-    const trailerKey = tvData?.videos?.results?.find(v => v.type === "Trailer" && v.site === "YouTube")?.key;
-
     return (
         <div className='w-full mt-10'>
             <div className="relative h-full px-4 rounded-xl overflow-hidden">
@@ -62,7 +60,7 @@ function TheWalkingDead() {
                         </div>
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-1">Overview</h2>
-                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">{tvData?.overview}</p>
+                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">After waking from a coma, sheriff Rick Grimes finds the world overrun by zombies. Struggling to survive with a group of strangers, he faces constant threats from the undead—and the living. As society crumbles, morality blurs, and leadership is tested in a relentless journey of survival, loss, and the fight to retain humanity.</p>
                             {tvData?.created_by?.map(c => (<p className='text-xl font-medium mt-3' key={c.id}>{c.name}</p>))}
                             <p className='text-gray-400'>Creator</p>
                         </div>

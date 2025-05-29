@@ -22,6 +22,7 @@ import AuthProvider from './AuthProvider.jsx';
 import Browse from './Browse/Browse.jsx';
 import BrowseGenre from './Browse/BrowseGenre.jsx';
 import News from './News.jsx';
+import Watchlist from './Components/Watchlist.jsx';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -74,7 +75,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/browse",
-        element: <Browse></Browse>
+        element: <Browse></Browse> 
+      },      
+      {
+        path: "/watchlist",
+        element: <Watchlist></Watchlist>,
+        loader: () => fetch('https://cineflix-main-server.vercel.app/watchlist')
       },
       {
         path: "/browse/:id",

@@ -35,10 +35,16 @@ function MissionImpossible() {
                         />
                     ) : null}
                     <div className="flex flex-col justify-center w-full">
-                        <div className="text-2xl md:text-5xl font-bold lg:flex items-center justify-around">
-                                <span className='hidden md:block'>Mission: Impossible -The</span>Final Reckoning
-                            <span className="text-gray-400 text-lg md:text-3xl"> ({movieData?.release_date?.slice(0, 4)})</span>
+                        <div className="flex lg:flex-row items-start lg:items-center text-2xl md:text-5xl font-bold">
+                            <div>
+                                <span className="hidden md:inline">Mission: Impossible -The </span>
+                                <span>Final Reckoning</span>
+                            </div>
+                            <span className="text-gray-400 text-lg md:text-3xl lg:mt-4 mt-1">
+                                ({movieData?.release_date?.slice(0, 4)})
+                            </span>
                         </div>
+
                         <p className="text-sm border border-white rounded px-2 w-fit my-2">
                             {movieData?.adult ? 'R-Rated' : 'PG-13'} • {movieData?.genres?.map(g => g.name).join(', ')}
                         </p>

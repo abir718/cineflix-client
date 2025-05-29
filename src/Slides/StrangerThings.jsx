@@ -61,7 +61,7 @@ function StrangerThings() {
                         </div>
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-1">Overview</h2>
-                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">{tvData?.overview}</p>
+                            <p className="text-gray-400 max-w-[800px] line-clamp-6 lg:line-clamp-none">In the 1980s town of Hawkins, Indiana, a young boy vanishes, uncovering a secret government experiment and a terrifying alternate dimension—the Upside Down. His friends, joined by a mysterious girl with psychic powers, confront supernatural horrors and conspiracies. Together, they battle monstrous forces threatening their world, friendship, and reality itself in this nostalgic sci-fi thriller.</p>
                             {tvData?.created_by?.[0] && (
                                 <p className='text-xl font-medium mt-3'>{tvData.created_by[0].name}</p>
                             )}

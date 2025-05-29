@@ -37,7 +37,7 @@ const Header = () => {
                                 </div>
                             </label>
                             <ul tabIndex={0} className="menu text-gray-400 dropdown-content mt-3 z-[1] p-2 shadow bg-[#212121] rounded-box w-fit">
-                                <li className="hover:bg-black/20"><a>Watchlist</a></li>
+                                <li><Link to="/watchlist" className="hover:bg-black/20">Watchlist</Link></li>
                                 <li onClick={logOut} className="hover:bg-black/20"><a>LogOut</a></li>
                             </ul>
                         </div>
